@@ -1,0 +1,747 @@
+@prefix : <https://tw.rpi.edu/web/project/ampo-ink#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://tw.rpi.edu/web/project/ampo-ink> .
+
+<https://tw.rpi.edu/web/project/ampo-ink> rdf:type owl:Ontology ;
+                                          
+                                          owl:imports <https://tw.rpi.edu/web/project/ampo> .
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#ActuatorMaterialDriver
+
+:ActuatorMaterialDriver rdf:type owl:Class ;
+                        
+                        rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Energizer> .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#ActuatorMaterialDriver_PneumaticControllerDialValue
+
+:ActuatorMaterialDriver_PneumaticControllerDialValue rdf:type owl:Class ;
+                                                     
+                                                     rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                                                       owl:someValuesFrom :ActuatorMaterialDriver
+                                                                     ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#ActuatorMaterialDriver_PumpForwardPressure
+
+:ActuatorMaterialDriver_PumpForwardPressure rdf:type owl:Class ;
+                                            
+                                            rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                                              owl:someValuesFrom :ActuatorMaterialDriver
+                                                            ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#ActuatorMaterialDriver_ReservoirVolume
+
+:ActuatorMaterialDriver_ReservoirVolume rdf:type owl:Class ;
+                                        
+                                        rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                                          owl:someValuesFrom :ActuatorMaterialDriver
+                                                        ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#ActuatorMaterialDriver_VacuumBackPressure
+
+:ActuatorMaterialDriver_VacuumBackPressure rdf:type owl:Class ;
+                                           
+                                           rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                                             owl:someValuesFrom :ActuatorMaterialDriver
+                                                           ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#ActuatorNozzle
+
+:ActuatorNozzle rdf:type owl:Class ;
+                
+                rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Equipment> .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#ActuatorNozzle_ActuationMethod
+
+:ActuatorNozzle_ActuationMethod rdf:type owl:Class ;
+                                
+                                rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                                  owl:someValuesFrom :ActuatorNozzle
+                                                ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#ActuatorNozzle_HeaterBlockTemperature
+
+:ActuatorNozzle_HeaterBlockTemperature rdf:type owl:Class ;
+                                       
+                                       rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                                         owl:someValuesFrom :ActuatorNozzle
+                                                       ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#ActuatorNozzle_NozzleSlotPosition
+
+:ActuatorNozzle_NozzleSlotPosition rdf:type owl:Class ;
+                                   
+                                   rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                                     owl:someValuesFrom :ActuatorNozzle
+                                                   ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#ActuatorNozzle_NozzleStepOffDistance
+
+:ActuatorNozzle_NozzleStepOffDistance rdf:type owl:Class ;
+                                      
+                                      rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                                        owl:someValuesFrom :ActuatorNozzle
+                                                      ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#ActuatorNozzle_OrificeDiameter
+
+:ActuatorNozzle_OrificeDiameter rdf:type owl:Class ;
+                                
+                                rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                                  owl:someValuesFrom :ActuatorNozzle
+                                                ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#ActuatorNozzle_OrificeMaterial
+
+:ActuatorNozzle_OrificeMaterial rdf:type owl:Class ;
+                                
+                                rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                                  owl:someValuesFrom :ActuatorNozzle
+                                                ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Actuator_Displacement
+
+:Actuator_Displacement rdf:type owl:Class ;
+                       
+                       rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Input> ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty <https://tw.rpi.edu/web/project/ampo#isInputOf> ;
+                                         owl:someValuesFrom <https://tw.rpi.edu/web/project/ampo#Actuator>
+                                       ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Actuator_DropletActuation
+
+:Actuator_DropletActuation rdf:type owl:Class ;
+                           
+                           rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Input> ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <https://tw.rpi.edu/web/project/ampo#isInputOf> ;
+                                             owl:someValuesFrom <https://tw.rpi.edu/web/project/ampo#Actuator>
+                                           ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Actuator_DropletPattern
+
+:Actuator_DropletPattern rdf:type owl:Class ;
+                         
+                         rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Input> ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty <https://tw.rpi.edu/web/project/ampo#isInputOf> ;
+                                           owl:someValuesFrom <https://tw.rpi.edu/web/project/ampo#Actuator>
+                                         ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Actuator_LayerHeight
+
+:Actuator_LayerHeight rdf:type owl:Class ;
+                      
+                      rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Input> ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty <https://tw.rpi.edu/web/project/ampo#isInputOf> ;
+                                        owl:someValuesFrom <https://tw.rpi.edu/web/project/ampo#Actuator>
+                                      ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Actuator_Path
+
+:Actuator_Path rdf:type owl:Class ;
+               
+               rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Input> ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty <https://tw.rpi.edu/web/project/ampo#isInputOf> ;
+                                 owl:someValuesFrom <https://tw.rpi.edu/web/project/ampo#Actuator>
+                               ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Actuator_PrintSpeed
+
+:Actuator_PrintSpeed rdf:type owl:Class ;
+                     
+                     rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Input> ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty <https://tw.rpi.edu/web/project/ampo#isInputOf> ;
+                                       owl:someValuesFrom <https://tw.rpi.edu/web/project/ampo#Actuator>
+                                     ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Actuator_StageBrandName
+
+:Actuator_StageBrandName rdf:type owl:Class ;
+                         
+                         rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                           owl:someValuesFrom <https://tw.rpi.edu/web/project/ampo#Actuator>
+                                         ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Actuator_XAxisMaxSpeed
+
+:Actuator_XAxisMaxSpeed rdf:type owl:Class ;
+                        
+                        rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                          owl:someValuesFrom <https://tw.rpi.edu/web/project/ampo#Actuator>
+                                        ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Actuator_XAxisResolution
+
+:Actuator_XAxisResolution rdf:type owl:Class ;
+                          
+                          rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                            owl:someValuesFrom <https://tw.rpi.edu/web/project/ampo#Actuator>
+                                          ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Actuator_YAxisMaxSpeed
+
+:Actuator_YAxisMaxSpeed rdf:type owl:Class ;
+                        
+                        rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                          owl:someValuesFrom <https://tw.rpi.edu/web/project/ampo#Actuator>
+                                        ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Actuator_YAxisResolution
+
+:Actuator_YAxisResolution rdf:type owl:Class ;
+                          
+                          rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                            owl:someValuesFrom <https://tw.rpi.edu/web/project/ampo#Actuator>
+                                          ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Actuator_ZAxisMaxSpeed
+
+:Actuator_ZAxisMaxSpeed rdf:type owl:Class ;
+                        
+                        rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                          owl:someValuesFrom <https://tw.rpi.edu/web/project/ampo#Actuator>
+                                        ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Actuator_ZAxisResolution
+
+:Actuator_ZAxisResolution rdf:type owl:Class ;
+                          
+                          rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                            owl:someValuesFrom <https://tw.rpi.edu/web/project/ampo#Actuator>
+                                          ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Artifact
+
+:Artifact rdf:type owl:Class ;
+          
+          rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Product> .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#BuildSubstrate
+
+:BuildSubstrate rdf:type owl:Class ;
+                
+                rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#SupportMaterial> .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#BuildSubstrate_Material
+
+:BuildSubstrate_Material rdf:type owl:Class ;
+                         
+                         rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                           owl:someValuesFrom :BuildSubstrate
+                                         ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#BuildSubstrate_SurfaceEnergy
+
+:BuildSubstrate_SurfaceEnergy rdf:type owl:Class ;
+                              
+                              rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                                owl:someValuesFrom :BuildSubstrate
+                                              ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#BuildSubstrate_SurfaceRoughness
+
+:BuildSubstrate_SurfaceRoughness rdf:type owl:Class ;
+                                 
+                                 rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                                   owl:someValuesFrom :BuildSubstrate
+                                                 ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#BuildSubstrate_Temperature
+
+:BuildSubstrate_Temperature rdf:type owl:Class ;
+                            
+                            rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                              owl:someValuesFrom :BuildSubstrate
+                                            ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#CuringLamp
+
+:CuringLamp rdf:type owl:Class ;
+            
+            rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Equipment> .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#CuringLamp_CureCyclesPerLayer
+
+:CuringLamp_CureCyclesPerLayer rdf:type owl:Class ;
+                               
+                               rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Input> ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty <https://tw.rpi.edu/web/project/ampo#isInputOf> ;
+                                                 owl:someValuesFrom :CuringLamp
+                                               ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#CuringLamp_CureTime
+
+:CuringLamp_CureTime rdf:type owl:Class ;
+                     
+                     rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Input> ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty <https://tw.rpi.edu/web/project/ampo#isInputOf> ;
+                                       owl:someValuesFrom :CuringLamp
+                                     ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#CuringLamp_MaxUVIntensity
+
+:CuringLamp_MaxUVIntensity rdf:type owl:Class ;
+                           
+                           rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                             owl:someValuesFrom :CuringLamp
+                                           ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#CuringLamp_UVAreaCoverage
+
+:CuringLamp_UVAreaCoverage rdf:type owl:Class ;
+                           
+                           rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                             owl:someValuesFrom :CuringLamp
+                                           ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#CuringLamp_UVIntensity
+
+:CuringLamp_UVIntensity rdf:type owl:Class ;
+                        
+                        rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Input> ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty <https://tw.rpi.edu/web/project/ampo#isInputOf> ;
+                                          owl:someValuesFrom :CuringLamp
+                                        ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#CuringLamp_UVWavelength
+
+:CuringLamp_UVWavelength rdf:type owl:Class ;
+                         
+                         rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                           owl:someValuesFrom :CuringLamp
+                                         ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Droplet
+
+:Droplet rdf:type owl:Class ;
+         
+         rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Product> .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#DropletActuation_DropletSpacing
+
+:DropletActuation_DropletSpacing rdf:type owl:Class ;
+                                 
+                                 rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                                   owl:someValuesFrom :Actuator_DropletActuation
+                                                 ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#DropletActuation_DwellTime
+
+:DropletActuation_DwellTime rdf:type owl:Class ;
+                            
+                            rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                              owl:someValuesFrom :Actuator_DropletActuation
+                                            ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#DropletActuation_EchoTime
+
+:DropletActuation_EchoTime rdf:type owl:Class ;
+                           
+                           rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                             owl:someValuesFrom :Actuator_DropletActuation
+                                           ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#DropletActuation_FallTime
+
+:DropletActuation_FallTime rdf:type owl:Class ;
+                           
+                           rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                             owl:someValuesFrom :Actuator_DropletActuation
+                                           ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#DropletActuation_FinalRiseTime
+
+:DropletActuation_FinalRiseTime rdf:type owl:Class ;
+                                
+                                rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                                  owl:someValuesFrom :Actuator_DropletActuation
+                                                ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#DropletActuation_MaxVoltageAmplitude
+
+:DropletActuation_MaxVoltageAmplitude rdf:type owl:Class ;
+                                      
+                                      rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                                        owl:someValuesFrom :Actuator_DropletActuation
+                                                      ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#DropletActuation_MinVoltageAmplitude
+
+:DropletActuation_MinVoltageAmplitude rdf:type owl:Class ;
+                                      
+                                      rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                                        owl:someValuesFrom :Actuator_DropletActuation
+                                                      ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#DropletActuation_RiseTime
+
+:DropletActuation_RiseTime rdf:type owl:Class ;
+                           
+                           rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                             owl:someValuesFrom :Actuator_DropletActuation
+                                           ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#DropletProductionProcess
+
+:DropletProductionProcess rdf:type owl:Class ;
+                          
+                          rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Process> .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Droplet_Diameter
+
+:Droplet_Diameter rdf:type owl:Class ;
+                  
+                  rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty owl:topObjectProperty ;
+                                    owl:someValuesFrom :Droplet
+                                  ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Droplet_Ejected
+
+:Droplet_Ejected rdf:type owl:Class ;
+                 
+                 rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty owl:topObjectProperty ;
+                                   owl:someValuesFrom :Droplet
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty rdf:value ;
+                                   owl:someValuesFrom xsd:boolean
+                                 ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Droplet_Satellites
+
+:Droplet_Satellites rdf:type owl:Class ;
+                    
+                    rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty owl:topObjectProperty ;
+                                      owl:someValuesFrom :Droplet
+                                    ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Droplet_Tail
+
+:Droplet_Tail rdf:type owl:Class ;
+              
+              rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty owl:topObjectProperty ;
+                                owl:someValuesFrom :Droplet
+                              ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Droplet_Velocity
+
+:Droplet_Velocity rdf:type owl:Class ;
+                  
+                  rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty owl:topObjectProperty ;
+                                    owl:someValuesFrom :Droplet
+                                  ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Indexing
+
+:Indexing rdf:type owl:Class ;
+          
+          rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Step> .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Ink
+
+:Ink rdf:type owl:Class ;
+     
+     rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#BuildMaterial> .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Ink_Color
+
+:Ink_Color rdf:type owl:Class ;
+           
+           rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                             owl:someValuesFrom :Ink
+                           ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Ink_Density
+
+:Ink_Density rdf:type owl:Class ;
+             
+             rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                               owl:someValuesFrom :Ink
+                             ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Ink_SurfaceTension
+
+:Ink_SurfaceTension rdf:type owl:Class ;
+                    
+                    rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                      owl:someValuesFrom :Ink
+                                    ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Ink_Viscosity
+
+:Ink_Viscosity rdf:type owl:Class ;
+               
+               rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                 owl:someValuesFrom :Ink
+                               ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#InkjetPrintingProcess
+
+:InkjetPrintingProcess rdf:type owl:Class ;
+                       
+                       rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Process> .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Layer
+
+:Layer rdf:type owl:Class ;
+       
+       rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Product> .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#MaterialCuring
+
+:MaterialCuring rdf:type owl:Class ;
+                
+                rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Step> .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#MaterialDeposition
+
+:MaterialDeposition rdf:type owl:Class ;
+                    
+                    rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Step> .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#PrintHead
+
+:PrintHead rdf:type owl:Class ;
+           
+           rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Equipment> .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#ProcessControlBox
+
+:ProcessControlBox rdf:type owl:Class ;
+                   
+                   rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Equipment> .
+
+
+
+
+###  Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net
+
