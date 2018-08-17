@@ -1,14 +1,37 @@
 @prefix : <https://tw.rpi.edu/web/project/ampo-ink#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sio: <http://semanticscience.org/resource/> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ampo: <https://tw.rpi.edu/web/project/ampo#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qudt: <http://data.nasa.gov/qudt/owl/qudt#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ampo-ink: <https://tw.rpi.edu/web/project/ampo-ink#> .
+@prefix qudt-unit: <http://qudt.org/1.1/vocab/unit#> .
 @base <https://tw.rpi.edu/web/project/ampo-ink> .
 
 <https://tw.rpi.edu/web/project/ampo-ink> rdf:type owl:Ontology ;
                                           
-                                          owl:imports <https://tw.rpi.edu/web/project/ampo> .
+                                          owl:imports <http://homepages.rpi.edu/~zhongh3/ontologies/ampo-1.0.5.ttl> .
+
+
+#################################################################
+#
+#    Data properties
+#
+#################################################################
+
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#value
+
+rdf:value rdf:type owl:DatatypeProperty .
+
+
+
 
 
 #################################################################
@@ -22,7 +45,7 @@
 
 :ActuatorMaterialDriver rdf:type owl:Class ;
                         
-                        rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Energizer> .
+                        rdfs:subClassOf ampo:Energizer .
 
 
 
@@ -30,9 +53,9 @@
 
 :ActuatorMaterialDriver_PneumaticControllerDialValue rdf:type owl:Class ;
                                                      
-                                                     rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                                     rdfs:subClassOf ampo:Attribute ,
                                                                      [ rdf:type owl:Restriction ;
-                                                                       owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                                                       owl:onProperty ampo:isAttributeOf ;
                                                                        owl:someValuesFrom :ActuatorMaterialDriver
                                                                      ] .
 
@@ -42,9 +65,9 @@
 
 :ActuatorMaterialDriver_PumpForwardPressure rdf:type owl:Class ;
                                             
-                                            rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                            rdfs:subClassOf ampo:Attribute ,
                                                             [ rdf:type owl:Restriction ;
-                                                              owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                                              owl:onProperty ampo:isAttributeOf ;
                                                               owl:someValuesFrom :ActuatorMaterialDriver
                                                             ] .
 
@@ -54,9 +77,9 @@
 
 :ActuatorMaterialDriver_ReservoirVolume rdf:type owl:Class ;
                                         
-                                        rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                        rdfs:subClassOf ampo:Attribute ,
                                                         [ rdf:type owl:Restriction ;
-                                                          owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                                          owl:onProperty ampo:isAttributeOf ;
                                                           owl:someValuesFrom :ActuatorMaterialDriver
                                                         ] .
 
@@ -66,9 +89,9 @@
 
 :ActuatorMaterialDriver_VacuumBackPressure rdf:type owl:Class ;
                                            
-                                           rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                           rdfs:subClassOf ampo:Attribute ,
                                                            [ rdf:type owl:Restriction ;
-                                                             owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                                             owl:onProperty ampo:isAttributeOf ;
                                                              owl:someValuesFrom :ActuatorMaterialDriver
                                                            ] .
 
@@ -78,7 +101,7 @@
 
 :ActuatorNozzle rdf:type owl:Class ;
                 
-                rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Equipment> .
+                rdfs:subClassOf ampo:Equipment .
 
 
 
@@ -86,9 +109,9 @@
 
 :ActuatorNozzle_ActuationMethod rdf:type owl:Class ;
                                 
-                                rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                rdfs:subClassOf ampo:Attribute ,
                                                 [ rdf:type owl:Restriction ;
-                                                  owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                                  owl:onProperty ampo:isAttributeOf ;
                                                   owl:someValuesFrom :ActuatorNozzle
                                                 ] .
 
@@ -98,9 +121,9 @@
 
 :ActuatorNozzle_HeaterBlockTemperature rdf:type owl:Class ;
                                        
-                                       rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                       rdfs:subClassOf ampo:Input ,
                                                        [ rdf:type owl:Restriction ;
-                                                         owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                                         owl:onProperty ampo:isInputOf ;
                                                          owl:someValuesFrom :ActuatorNozzle
                                                        ] .
 
@@ -110,9 +133,9 @@
 
 :ActuatorNozzle_NozzleSlotPosition rdf:type owl:Class ;
                                    
-                                   rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                   rdfs:subClassOf ampo:Attribute ,
                                                    [ rdf:type owl:Restriction ;
-                                                     owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                                     owl:onProperty ampo:isAttributeOf ;
                                                      owl:someValuesFrom :ActuatorNozzle
                                                    ] .
 
@@ -122,9 +145,9 @@
 
 :ActuatorNozzle_NozzleStepOffDistance rdf:type owl:Class ;
                                       
-                                      rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                      rdfs:subClassOf ampo:Attribute ,
                                                       [ rdf:type owl:Restriction ;
-                                                        owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                                        owl:onProperty ampo:isAttributeOf ;
                                                         owl:someValuesFrom :ActuatorNozzle
                                                       ] .
 
@@ -134,9 +157,9 @@
 
 :ActuatorNozzle_OrificeDiameter rdf:type owl:Class ;
                                 
-                                rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                rdfs:subClassOf ampo:Attribute ,
                                                 [ rdf:type owl:Restriction ;
-                                                  owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                                  owl:onProperty ampo:isAttributeOf ;
                                                   owl:someValuesFrom :ActuatorNozzle
                                                 ] .
 
@@ -146,9 +169,9 @@
 
 :ActuatorNozzle_OrificeMaterial rdf:type owl:Class ;
                                 
-                                rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                rdfs:subClassOf ampo:Attribute ,
                                                 [ rdf:type owl:Restriction ;
-                                                  owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                                  owl:onProperty ampo:isAttributeOf ;
                                                   owl:someValuesFrom :ActuatorNozzle
                                                 ] .
 
@@ -158,10 +181,10 @@
 
 :Actuator_Displacement rdf:type owl:Class ;
                        
-                       rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Input> ,
+                       rdfs:subClassOf ampo:Input ,
                                        [ rdf:type owl:Restriction ;
-                                         owl:onProperty <https://tw.rpi.edu/web/project/ampo#isInputOf> ;
-                                         owl:someValuesFrom <https://tw.rpi.edu/web/project/ampo#Actuator>
+                                         owl:onProperty ampo:isInputOf ;
+                                         owl:someValuesFrom ampo:Actuator
                                        ] .
 
 
@@ -170,11 +193,7 @@
 
 :Actuator_DropletActuation rdf:type owl:Class ;
                            
-                           rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Input> ,
-                                           [ rdf:type owl:Restriction ;
-                                             owl:onProperty <https://tw.rpi.edu/web/project/ampo#isInputOf> ;
-                                             owl:someValuesFrom <https://tw.rpi.edu/web/project/ampo#Actuator>
-                                           ] .
+                           rdfs:subClassOf ampo:Input .
 
 
 
@@ -182,10 +201,10 @@
 
 :Actuator_DropletPattern rdf:type owl:Class ;
                          
-                         rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Input> ,
+                         rdfs:subClassOf ampo:Input ,
                                          [ rdf:type owl:Restriction ;
-                                           owl:onProperty <https://tw.rpi.edu/web/project/ampo#isInputOf> ;
-                                           owl:someValuesFrom <https://tw.rpi.edu/web/project/ampo#Actuator>
+                                           owl:onProperty ampo:isInputOf ;
+                                           owl:someValuesFrom ampo:Actuator
                                          ] .
 
 
@@ -194,10 +213,10 @@
 
 :Actuator_LayerHeight rdf:type owl:Class ;
                       
-                      rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Input> ,
+                      rdfs:subClassOf ampo:Input ,
                                       [ rdf:type owl:Restriction ;
-                                        owl:onProperty <https://tw.rpi.edu/web/project/ampo#isInputOf> ;
-                                        owl:someValuesFrom <https://tw.rpi.edu/web/project/ampo#Actuator>
+                                        owl:onProperty ampo:isInputOf ;
+                                        owl:someValuesFrom ampo:Actuator
                                       ] .
 
 
@@ -206,10 +225,10 @@
 
 :Actuator_Path rdf:type owl:Class ;
                
-               rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Input> ,
+               rdfs:subClassOf ampo:Input ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty <https://tw.rpi.edu/web/project/ampo#isInputOf> ;
-                                 owl:someValuesFrom <https://tw.rpi.edu/web/project/ampo#Actuator>
+                                 owl:onProperty ampo:isInputOf ;
+                                 owl:someValuesFrom ampo:Actuator
                                ] .
 
 
@@ -218,10 +237,10 @@
 
 :Actuator_PrintSpeed rdf:type owl:Class ;
                      
-                     rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Input> ,
+                     rdfs:subClassOf ampo:Input ,
                                      [ rdf:type owl:Restriction ;
-                                       owl:onProperty <https://tw.rpi.edu/web/project/ampo#isInputOf> ;
-                                       owl:someValuesFrom <https://tw.rpi.edu/web/project/ampo#Actuator>
+                                       owl:onProperty ampo:isInputOf ;
+                                       owl:someValuesFrom ampo:Actuator
                                      ] .
 
 
@@ -230,10 +249,10 @@
 
 :Actuator_StageBrandName rdf:type owl:Class ;
                          
-                         rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                         rdfs:subClassOf ampo:Attribute ,
                                          [ rdf:type owl:Restriction ;
-                                           owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
-                                           owl:someValuesFrom <https://tw.rpi.edu/web/project/ampo#Actuator>
+                                           owl:onProperty ampo:isAttributeOf ;
+                                           owl:someValuesFrom ampo:Actuator
                                          ] .
 
 
@@ -242,10 +261,10 @@
 
 :Actuator_XAxisMaxSpeed rdf:type owl:Class ;
                         
-                        rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                        rdfs:subClassOf ampo:Attribute ,
                                         [ rdf:type owl:Restriction ;
-                                          owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
-                                          owl:someValuesFrom <https://tw.rpi.edu/web/project/ampo#Actuator>
+                                          owl:onProperty ampo:isAttributeOf ;
+                                          owl:someValuesFrom ampo:Actuator
                                         ] .
 
 
@@ -254,10 +273,10 @@
 
 :Actuator_XAxisResolution rdf:type owl:Class ;
                           
-                          rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                          rdfs:subClassOf ampo:Attribute ,
                                           [ rdf:type owl:Restriction ;
-                                            owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
-                                            owl:someValuesFrom <https://tw.rpi.edu/web/project/ampo#Actuator>
+                                            owl:onProperty ampo:isAttributeOf ;
+                                            owl:someValuesFrom ampo:Actuator
                                           ] .
 
 
@@ -266,10 +285,10 @@
 
 :Actuator_YAxisMaxSpeed rdf:type owl:Class ;
                         
-                        rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                        rdfs:subClassOf ampo:Attribute ,
                                         [ rdf:type owl:Restriction ;
-                                          owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
-                                          owl:someValuesFrom <https://tw.rpi.edu/web/project/ampo#Actuator>
+                                          owl:onProperty ampo:isAttributeOf ;
+                                          owl:someValuesFrom ampo:Actuator
                                         ] .
 
 
@@ -278,10 +297,10 @@
 
 :Actuator_YAxisResolution rdf:type owl:Class ;
                           
-                          rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                          rdfs:subClassOf ampo:Attribute ,
                                           [ rdf:type owl:Restriction ;
-                                            owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
-                                            owl:someValuesFrom <https://tw.rpi.edu/web/project/ampo#Actuator>
+                                            owl:onProperty ampo:isAttributeOf ;
+                                            owl:someValuesFrom ampo:Actuator
                                           ] .
 
 
@@ -290,10 +309,10 @@
 
 :Actuator_ZAxisMaxSpeed rdf:type owl:Class ;
                         
-                        rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                        rdfs:subClassOf ampo:Attribute ,
                                         [ rdf:type owl:Restriction ;
-                                          owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
-                                          owl:someValuesFrom <https://tw.rpi.edu/web/project/ampo#Actuator>
+                                          owl:onProperty ampo:isAttributeOf ;
+                                          owl:someValuesFrom ampo:Actuator
                                         ] .
 
 
@@ -302,10 +321,10 @@
 
 :Actuator_ZAxisResolution rdf:type owl:Class ;
                           
-                          rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                          rdfs:subClassOf ampo:Attribute ,
                                           [ rdf:type owl:Restriction ;
-                                            owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
-                                            owl:someValuesFrom <https://tw.rpi.edu/web/project/ampo#Actuator>
+                                            owl:onProperty ampo:isAttributeOf ;
+                                            owl:someValuesFrom ampo:Actuator
                                           ] .
 
 
@@ -314,7 +333,7 @@
 
 :Artifact rdf:type owl:Class ;
           
-          rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Product> .
+          rdfs:subClassOf ampo:Product .
 
 
 
@@ -322,7 +341,7 @@
 
 :BuildSubstrate rdf:type owl:Class ;
                 
-                rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#SupportMaterial> .
+                rdfs:subClassOf ampo:SupportMaterial .
 
 
 
@@ -330,9 +349,9 @@
 
 :BuildSubstrate_Material rdf:type owl:Class ;
                          
-                         rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                         rdfs:subClassOf ampo:Attribute ,
                                          [ rdf:type owl:Restriction ;
-                                           owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                           owl:onProperty ampo:isAttributeOf ;
                                            owl:someValuesFrom :BuildSubstrate
                                          ] .
 
@@ -342,9 +361,9 @@
 
 :BuildSubstrate_SurfaceEnergy rdf:type owl:Class ;
                               
-                              rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                              rdfs:subClassOf ampo:Attribute ,
                                               [ rdf:type owl:Restriction ;
-                                                owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                                owl:onProperty ampo:isAttributeOf ;
                                                 owl:someValuesFrom :BuildSubstrate
                                               ] .
 
@@ -354,9 +373,9 @@
 
 :BuildSubstrate_SurfaceRoughness rdf:type owl:Class ;
                                  
-                                 rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                 rdfs:subClassOf ampo:Attribute ,
                                                  [ rdf:type owl:Restriction ;
-                                                   owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                                   owl:onProperty ampo:isAttributeOf ;
                                                    owl:someValuesFrom :BuildSubstrate
                                                  ] .
 
@@ -366,9 +385,9 @@
 
 :BuildSubstrate_Temperature rdf:type owl:Class ;
                             
-                            rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                            rdfs:subClassOf ampo:Attribute ,
                                             [ rdf:type owl:Restriction ;
-                                              owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                              owl:onProperty ampo:isAttributeOf ;
                                               owl:someValuesFrom :BuildSubstrate
                                             ] .
 
@@ -378,7 +397,7 @@
 
 :CuringLamp rdf:type owl:Class ;
             
-            rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Equipment> .
+            rdfs:subClassOf ampo:Equipment .
 
 
 
@@ -386,9 +405,9 @@
 
 :CuringLamp_CureCyclesPerLayer rdf:type owl:Class ;
                                
-                               rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Input> ,
+                               rdfs:subClassOf ampo:Input ,
                                                [ rdf:type owl:Restriction ;
-                                                 owl:onProperty <https://tw.rpi.edu/web/project/ampo#isInputOf> ;
+                                                 owl:onProperty ampo:isInputOf ;
                                                  owl:someValuesFrom :CuringLamp
                                                ] .
 
@@ -398,9 +417,9 @@
 
 :CuringLamp_CureTime rdf:type owl:Class ;
                      
-                     rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Input> ,
+                     rdfs:subClassOf ampo:Input ,
                                      [ rdf:type owl:Restriction ;
-                                       owl:onProperty <https://tw.rpi.edu/web/project/ampo#isInputOf> ;
+                                       owl:onProperty ampo:isInputOf ;
                                        owl:someValuesFrom :CuringLamp
                                      ] .
 
@@ -410,9 +429,9 @@
 
 :CuringLamp_MaxUVIntensity rdf:type owl:Class ;
                            
-                           rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                           rdfs:subClassOf ampo:Attribute ,
                                            [ rdf:type owl:Restriction ;
-                                             owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                             owl:onProperty ampo:isAttributeOf ;
                                              owl:someValuesFrom :CuringLamp
                                            ] .
 
@@ -422,9 +441,9 @@
 
 :CuringLamp_UVAreaCoverage rdf:type owl:Class ;
                            
-                           rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                           rdfs:subClassOf ampo:Attribute ,
                                            [ rdf:type owl:Restriction ;
-                                             owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                             owl:onProperty ampo:isAttributeOf ;
                                              owl:someValuesFrom :CuringLamp
                                            ] .
 
@@ -434,9 +453,9 @@
 
 :CuringLamp_UVIntensity rdf:type owl:Class ;
                         
-                        rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Input> ,
+                        rdfs:subClassOf ampo:Input ,
                                         [ rdf:type owl:Restriction ;
-                                          owl:onProperty <https://tw.rpi.edu/web/project/ampo#isInputOf> ;
+                                          owl:onProperty ampo:isInputOf ;
                                           owl:someValuesFrom :CuringLamp
                                         ] .
 
@@ -446,9 +465,9 @@
 
 :CuringLamp_UVWavelength rdf:type owl:Class ;
                          
-                         rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                         rdfs:subClassOf ampo:Attribute ,
                                          [ rdf:type owl:Restriction ;
-                                           owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                           owl:onProperty ampo:isAttributeOf ;
                                            owl:someValuesFrom :CuringLamp
                                          ] .
 
@@ -458,7 +477,21 @@
 
 :Droplet rdf:type owl:Class ;
          
-         rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Product> .
+         rdfs:subClassOf ampo:Product .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#DropletActuation_Amplitude
+
+:DropletActuation_Amplitude rdf:type owl:Class ;
+                            
+                            rdfs:label "Amplitude (V)"^^xsd:string ;
+                            
+                            rdfs:subClassOf ampo:Attribute ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty ampo:isAttributeOf ;
+                                              owl:someValuesFrom :Actuator_DropletActuation
+                                            ] .
 
 
 
@@ -466,9 +499,9 @@
 
 :DropletActuation_DropletSpacing rdf:type owl:Class ;
                                  
-                                 rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                 rdfs:subClassOf ampo:Attribute ,
                                                  [ rdf:type owl:Restriction ;
-                                                   owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                                   owl:onProperty ampo:isAttributeOf ;
                                                    owl:someValuesFrom :Actuator_DropletActuation
                                                  ] .
 
@@ -478,9 +511,11 @@
 
 :DropletActuation_DwellTime rdf:type owl:Class ;
                             
-                            rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                            rdfs:label "Dwell Time (μs)"^^xsd:string ;
+                            
+                            rdfs:subClassOf ampo:Attribute ,
                                             [ rdf:type owl:Restriction ;
-                                              owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                              owl:onProperty ampo:isAttributeOf ;
                                               owl:someValuesFrom :Actuator_DropletActuation
                                             ] .
 
@@ -490,9 +525,11 @@
 
 :DropletActuation_EchoTime rdf:type owl:Class ;
                            
-                           rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                           rdfs:label "Echo Time (μs)"^^xsd:string ;
+                           
+                           rdfs:subClassOf ampo:Attribute ,
                                            [ rdf:type owl:Restriction ;
-                                             owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                             owl:onProperty ampo:isAttributeOf ;
                                              owl:someValuesFrom :Actuator_DropletActuation
                                            ] .
 
@@ -502,9 +539,11 @@
 
 :DropletActuation_FallTime rdf:type owl:Class ;
                            
-                           rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                           rdfs:label "Fall Time (μs)"^^xsd:string ;
+                           
+                           rdfs:subClassOf ampo:Attribute ,
                                            [ rdf:type owl:Restriction ;
-                                             owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                             owl:onProperty ampo:isAttributeOf ;
                                              owl:someValuesFrom :Actuator_DropletActuation
                                            ] .
 
@@ -514,11 +553,43 @@
 
 :DropletActuation_FinalRiseTime rdf:type owl:Class ;
                                 
-                                rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                rdfs:label "Final Rise Time (μs)"^^xsd:string ;
+                                
+                                rdfs:subClassOf ampo:Attribute ,
                                                 [ rdf:type owl:Restriction ;
-                                                  owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                                  owl:onProperty ampo:isAttributeOf ;
                                                   owl:someValuesFrom :Actuator_DropletActuation
                                                 ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#DropletActuation_IdleVoltage
+
+:DropletActuation_IdleVoltage rdf:type owl:Class ;
+                              
+                              rdfs:label "Idle Voltage (V)"^^xsd:string ;
+                              
+                              rdfs:subClassOf ampo:Attribute ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty ampo:isAttributeOf ;
+                                                owl:someValuesFrom :Actuator_DropletActuation
+                                              ] ;
+                              
+                              rdfs:comment "Idle Voltage (V)"^^xsd:string .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#DropletActuation_LineType
+
+:DropletActuation_LineType rdf:type owl:Class ;
+                           
+                           rdfs:label "Line Type"^^xsd:string ;
+                           
+                           rdfs:subClassOf ampo:Attribute ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty ampo:isAttributeOf ;
+                                             owl:someValuesFrom :Actuator_DropletActuation
+                                           ] .
 
 
 
@@ -526,9 +597,11 @@
 
 :DropletActuation_MaxVoltageAmplitude rdf:type owl:Class ;
                                       
-                                      rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                      rdfs:label "Maximum Voltage Amplitude (V)"^^xsd:string ;
+                                      
+                                      rdfs:subClassOf ampo:Attribute ,
                                                       [ rdf:type owl:Restriction ;
-                                                        owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                                        owl:onProperty ampo:isAttributeOf ;
                                                         owl:someValuesFrom :Actuator_DropletActuation
                                                       ] .
 
@@ -538,11 +611,27 @@
 
 :DropletActuation_MinVoltageAmplitude rdf:type owl:Class ;
                                       
-                                      rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                                      rdfs:label "Minimum Voltage Amplitude (V)"^^xsd:string ;
+                                      
+                                      rdfs:subClassOf ampo:Attribute ,
                                                       [ rdf:type owl:Restriction ;
-                                                        owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                                        owl:onProperty ampo:isAttributeOf ;
                                                         owl:someValuesFrom :Actuator_DropletActuation
                                                       ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#DropletActuation_Period
+
+:DropletActuation_Period rdf:type owl:Class ;
+                         
+                         rdfs:label "Period (μs)"^^xsd:string ;
+                         
+                         rdfs:subClassOf ampo:Attribute ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty ampo:isAttributeOf ;
+                                           owl:someValuesFrom :Actuator_DropletActuation
+                                         ] .
 
 
 
@@ -550,11 +639,27 @@
 
 :DropletActuation_RiseTime rdf:type owl:Class ;
                            
-                           rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                           rdfs:label "Rise Time (μs)"^^xsd:string ;
+                           
+                           rdfs:subClassOf ampo:Attribute ,
                                            [ rdf:type owl:Restriction ;
-                                             owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                             owl:onProperty ampo:isAttributeOf ;
                                              owl:someValuesFrom :Actuator_DropletActuation
                                            ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#DropletActuation_WaveformType
+
+:DropletActuation_WaveformType rdf:type owl:Class ;
+                               
+                               rdfs:label "Waveform Type"^^xsd:string ;
+                               
+                               rdfs:subClassOf ampo:Attribute ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty ampo:isAttributeOf ;
+                                                 owl:someValuesFrom :Actuator_DropletActuation
+                                               ] .
 
 
 
@@ -562,7 +667,7 @@
 
 :DropletProductionProcess rdf:type owl:Class ;
                           
-                          rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Process> .
+                          rdfs:subClassOf ampo:Process .
 
 
 
@@ -570,11 +675,31 @@
 
 :Droplet_Diameter rdf:type owl:Class ;
                   
-                  rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                  rdfs:subClassOf ampo:Attribute ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty owl:topObjectProperty ;
+                                    owl:onProperty ampo:isAttributeOf ;
                                     owl:someValuesFrom :Droplet
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty qudt:quantityValue ;
+                                    owl:someValuesFrom qudt:QuantityValue
                                   ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Droplet_DistanceTraveled
+
+:Droplet_DistanceTraveled rdf:type owl:Class ;
+                          
+                          rdfs:subClassOf ampo:Attribute ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty qudt:quantityValue ;
+                                            owl:someValuesFrom qudt:QuantityValue
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty ampo:isAttributeOf ;
+                                            owl:someValuesFrom :Droplet
+                                          ] .
 
 
 
@@ -582,14 +707,14 @@
 
 :Droplet_Ejected rdf:type owl:Class ;
                  
-                 rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty owl:topObjectProperty ;
-                                   owl:someValuesFrom :Droplet
-                                 ] ,
+                 rdfs:subClassOf ampo:Attribute ,
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty rdf:value ;
                                    owl:someValuesFrom xsd:boolean
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty ampo:isAttributeOf ;
+                                   owl:someValuesFrom :Droplet
                                  ] .
 
 
@@ -598,9 +723,13 @@
 
 :Droplet_Satellites rdf:type owl:Class ;
                     
-                    rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                    rdfs:subClassOf ampo:Attribute ,
                                     [ rdf:type owl:Restriction ;
-                                      owl:onProperty owl:topObjectProperty ;
+                                      owl:onProperty rdf:value ;
+                                      owl:someValuesFrom xsd:boolean
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty ampo:isAttributeOf ;
                                       owl:someValuesFrom :Droplet
                                     ] .
 
@@ -610,11 +739,47 @@
 
 :Droplet_Tail rdf:type owl:Class ;
               
-              rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+              rdfs:subClassOf ampo:Attribute ,
                               [ rdf:type owl:Restriction ;
-                                owl:onProperty owl:topObjectProperty ;
+                                owl:onProperty rdf:value ;
+                                owl:someValuesFrom xsd:boolean
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty ampo:isAttributeOf ;
                                 owl:someValuesFrom :Droplet
                               ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Droplet_TimeFrame_1
+
+:Droplet_TimeFrame_1 rdf:type owl:Class ;
+                     
+                     rdfs:subClassOf ampo:Attribute ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty qudt:quantityValue ;
+                                       owl:someValuesFrom qudt:QuantityValue
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty ampo:isAttributeOf ;
+                                       owl:someValuesFrom :Droplet
+                                     ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Droplet_TimeFrame_2
+
+:Droplet_TimeFrame_2 rdf:type owl:Class ;
+                     
+                     rdfs:subClassOf ampo:Attribute ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty qudt:quantityValue ;
+                                       owl:someValuesFrom qudt:QuantityValue
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty ampo:isAttributeOf ;
+                                       owl:someValuesFrom :Droplet
+                                     ] .
 
 
 
@@ -622,11 +787,33 @@
 
 :Droplet_Velocity rdf:type owl:Class ;
                   
-                  rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                  rdfs:subClassOf ampo:Attribute ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty owl:topObjectProperty ;
+                                    owl:onProperty ampo:isAttributeOf ;
                                     owl:someValuesFrom :Droplet
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty qudt:quantityValue ;
+                                    owl:someValuesFrom qudt:QuantityValue
                                   ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Droplet_Visible
+
+:Droplet_Visible rdf:type owl:Class ;
+                 
+                 rdfs:subClassOf ampo:Attribute ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty ampo:isAttributeOf ;
+                                   owl:someValuesFrom :Droplet
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty rdf:value ;
+                                   owl:someValuesFrom xsd:boolean
+                                 ] ;
+                 
+                 rdfs:comment "Droplet Visible (Y/N)" .
 
 
 
@@ -634,7 +821,7 @@
 
 :Indexing rdf:type owl:Class ;
           
-          rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Step> .
+          rdfs:subClassOf ampo:Step .
 
 
 
@@ -642,7 +829,7 @@
 
 :Ink rdf:type owl:Class ;
      
-     rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#BuildMaterial> .
+     rdfs:subClassOf ampo:BuildMaterial .
 
 
 
@@ -650,9 +837,11 @@
 
 :Ink_Color rdf:type owl:Class ;
            
-           rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+           rdfs:label "Color"^^xsd:string ;
+           
+           rdfs:subClassOf ampo:Attribute ,
                            [ rdf:type owl:Restriction ;
-                             owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                             owl:onProperty ampo:isAttributeOf ;
                              owl:someValuesFrom :Ink
                            ] .
 
@@ -662,11 +851,27 @@
 
 :Ink_Density rdf:type owl:Class ;
              
-             rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+             rdfs:label "Density (kg/m^3)"^^xsd:string ;
+             
+             rdfs:subClassOf ampo:Attribute ,
                              [ rdf:type owl:Restriction ;
-                               owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                               owl:onProperty ampo:isAttributeOf ;
                                owl:someValuesFrom :Ink
                              ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Ink_DynamicViscosity
+
+:Ink_DynamicViscosity rdf:type owl:Class ;
+                      
+                      rdfs:label "Dynamic Viscosity (Pa-s)"^^xsd:string ;
+                      
+                      rdfs:subClassOf ampo:Attribute ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty ampo:isAttributeOf ;
+                                        owl:someValuesFrom :Ink
+                                      ] .
 
 
 
@@ -674,23 +879,13 @@
 
 :Ink_SurfaceTension rdf:type owl:Class ;
                     
-                    rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
+                    rdfs:label "Surface Tension (N/m)"^^xsd:string ;
+                    
+                    rdfs:subClassOf ampo:Attribute ,
                                     [ rdf:type owl:Restriction ;
-                                      owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
+                                      owl:onProperty ampo:isAttributeOf ;
                                       owl:someValuesFrom :Ink
                                     ] .
-
-
-
-###  https://tw.rpi.edu/web/project/ampo-ink#Ink_Viscosity
-
-:Ink_Viscosity rdf:type owl:Class ;
-               
-               rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Attribute> ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty <https://tw.rpi.edu/web/project/ampo#isAttributeOf> ;
-                                 owl:someValuesFrom :Ink
-                               ] .
 
 
 
@@ -698,7 +893,7 @@
 
 :InkjetPrintingProcess rdf:type owl:Class ;
                        
-                       rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Process> .
+                       rdfs:subClassOf ampo:Process .
 
 
 
@@ -706,7 +901,7 @@
 
 :Layer rdf:type owl:Class ;
        
-       rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Product> .
+       rdfs:subClassOf ampo:Product .
 
 
 
@@ -714,7 +909,7 @@
 
 :MaterialCuring rdf:type owl:Class ;
                 
-                rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Step> .
+                rdfs:subClassOf ampo:Step .
 
 
 
@@ -722,7 +917,7 @@
 
 :MaterialDeposition rdf:type owl:Class ;
                     
-                    rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Step> .
+                    rdfs:subClassOf ampo:Step .
 
 
 
@@ -730,7 +925,7 @@
 
 :PrintHead rdf:type owl:Class ;
            
-           rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Equipment> .
+           rdfs:subClassOf ampo:Equipment .
 
 
 
@@ -738,7 +933,73 @@
 
 :ProcessControlBox rdf:type owl:Class ;
                    
-                   rdfs:subClassOf <https://tw.rpi.edu/web/project/ampo#Equipment> .
+                   rdfs:subClassOf ampo:Equipment .
+
+
+
+
+
+#################################################################
+#
+#    Individuals
+#
+#################################################################
+
+
+###  http://qudt.org/1.1/vocab/unit#DegreeCelsius
+
+qudt-unit:DegreeCelsius rdf:type owl:NamedIndividual .
+
+
+
+###  http://qudt.org/1.1/vocab/unit#KilogramPerCubicMeter
+
+qudt-unit:KilogramPerCubicMeter rdf:type owl:NamedIndividual .
+
+
+
+###  http://qudt.org/1.1/vocab/unit#MeterPerSecond
+
+qudt-unit:MeterPerSecond rdf:type owl:NamedIndividual .
+
+
+
+###  http://qudt.org/1.1/vocab/unit#MicroSecond
+
+qudt-unit:MicroSecond rdf:type owl:NamedIndividual .
+
+
+
+###  http://qudt.org/1.1/vocab/unit#Micrometer
+
+qudt-unit:Micrometer rdf:type owl:NamedIndividual .
+
+
+
+###  http://qudt.org/1.1/vocab/unit#NewtonPerMeter
+
+qudt-unit:NewtonPerMeter rdf:type owl:NamedIndividual .
+
+
+
+###  http://qudt.org/1.1/vocab/unit#PascalSecond
+
+qudt-unit:PascalSecond rdf:type owl:NamedIndividual .
+
+
+
+###  http://qudt.org/1.1/vocab/unit#Volt
+
+qudt-unit:Volt rdf:type owl:NamedIndividual .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Nozzle_BC
+
+:Nozzle_BC rdf:type owl:NamedIndividual ,
+                    :ActuatorNozzle ;
+           
+           rdfs:label "BC"^^xsd:string .
 
 
 

@@ -1,0 +1,1208 @@
+@prefix : <https://tw.rpi.edu/web/project/ampo#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sio: <http://semanticscience.org/resource/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ampo: <https://tw.rpi.edu/web/project/ampo#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qudt: <http://data.nasa.gov/qudt/owl/qudt#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix qudt-unit: <http://qudt.org/1.1/vocab/unit#> .
+@base <https://tw.rpi.edu/web/project/ampo> .
+
+<https://tw.rpi.edu/web/project/ampo> rdf:type owl:Ontology ;
+                                      
+                                      rdfs:label "Additive Manufacturing Processing Ontology" ;
+                                      
+                                      dcterms:date "2018-08-06"^^xsd:date ;
+                                      
+                                      dcterms:identifier "http://tw.rpi.edu/web/project/ampo" ;
+                                      
+                                      owl:versionInfo "1.0.5" ;
+                                      
+                                      rdfs:comment "An ontology designed for organizing and categorizing the myriad relationships between materials processing, properties and structure.  The ontology is available at: http://tw.rpi.edu/web/project/ampo/ampo.ttl. The ontology uses the namespace prefix ampo." ;
+                                      
+                                      dcterms:title "Additive Manufacturing Processing Ontology"@en ;
+                                      
+                                      owl:imports <http://data.qudt.org/qudt/owl/1.0.0/qudt.owl> ;
+                                      
+                                      dcterms:creator :Bryan_Chu ,
+                                                      :Congrui_Li ;
+                                      
+                                      dcterms:contributor :Hao_Zhong ,
+                                                          :Johnson_Samuel ,
+                                                          :Peter_Fox ,
+                                                          :Xiaogang_Ma ;
+                                      
+                                      owl:versionIRI <https://tw.rpi.edu/web/project/ampo/1.0.5> .
+
+
+#################################################################
+#
+#    Annotation properties
+#
+#################################################################
+
+
+###  http://xmlns.com/foaf/0.1/mbox
+
+foaf:mbox rdf:type owl:AnnotationProperty .
+
+
+
+###  http://xmlns.com/foaf/0.1/name
+
+foaf:name rdf:type owl:AnnotationProperty .
+
+
+
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://www.w3.org/ns/prov#entity
+
+prov:entity rdf:type owl:ObjectProperty .
+
+
+
+###  http://www.w3.org/ns/prov#qualifiedUsage
+
+prov:qualifiedUsage rdf:type owl:ObjectProperty .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#addsEnergyTo
+
+:addsEnergyTo rdf:type owl:ObjectProperty ;
+              
+              rdfs:label "adds energy to" ;
+              
+              rdfs:comment "An Energizer adds energy to a material." ;
+              
+              rdfs:domain :Energizer ;
+              
+              rdfs:range :Material ;
+              
+              rdfs:subPropertyOf :operatesOn .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#affects
+
+:affects rdf:type owl:ObjectProperty ;
+         
+         rdfs:label "affects" ;
+         
+         rdfs:comment "A material affects the working volume." ;
+         
+         rdfs:domain :Material ;
+         
+         rdfs:range :WorkingVolume .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#determines
+
+:determines rdf:type owl:ObjectProperty ;
+            
+            rdfs:label "determines" ;
+            
+            rdfs:comment "A model determines input." ;
+            
+            rdfs:range :Input ;
+            
+            rdfs:domain :Model .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#equipment
+
+:equipment rdf:type owl:ObjectProperty ;
+           
+           rdfs:comment "equipment" ,
+                        "A usage is associated with an equipment." ;
+           
+           rdfs:subPropertyOf prov:entity ;
+           
+           rdfs:range :Equipment ;
+           
+           rdfs:domain :EquipmentUsage .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#generates
+
+:generates rdf:type owl:ObjectProperty ;
+           
+           rdfs:label "generates" ;
+           
+           rdfs:comment "Model produces the following entity." ;
+           
+           rdfs:range :Model ;
+           
+           rdfs:domain :Model .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#happensDirectlyBefore
+
+:happensDirectlyBefore rdf:type owl:ObjectProperty ;
+                       
+                       rdfs:label "happens directly before" ;
+                       
+                       rdfs:comment "Shows the sequence of steps and processes. A step or process happens directly before another step or process." ;
+                       
+                       rdfs:domain [ rdf:type owl:Class ;
+                                     owl:unionOf ( :Process
+                                                   :Step
+                                                 )
+                                   ] ;
+                       
+                       rdfs:range [ rdf:type owl:Class ;
+                                    owl:unionOf ( :Process
+                                                  :Step
+                                                )
+                                  ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#hasAttribute
+
+:hasAttribute rdf:type owl:ObjectProperty ;
+              
+              rdfs:label "has attribute" ;
+              
+              rdfs:comment "An entity may have one or more attributes." ;
+              
+              rdfs:range :Attribute .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#hasFirstStep
+
+:hasFirstStep rdf:type owl:ObjectProperty ;
+              
+              rdfs:label "has first step" ;
+              
+              rdfs:comment "Shows the first step of a process." ;
+              
+              rdfs:domain :Process ;
+              
+              rdfs:range :Step ;
+              
+              rdfs:subPropertyOf :hasStep .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#hasInput
+
+:hasInput rdf:type owl:ObjectProperty ;
+          
+          rdfs:label "has input" ;
+          
+          rdfs:comment "A piece of equipment may have one or more inputs fed into it." ;
+          
+          rdfs:domain :Equipment ;
+          
+          rdfs:range :Input .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#hasLastStep
+
+:hasLastStep rdf:type owl:ObjectProperty ;
+             
+             rdfs:label "has last step" ;
+             
+             rdfs:comment "Shows the last step of a process." ;
+             
+             rdfs:domain :Process ;
+             
+             rdfs:range :Step ;
+             
+             rdfs:subPropertyOf :hasStep .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#hasNextStep
+
+:hasNextStep rdf:type owl:ObjectProperty ;
+             
+             rdfs:label "has next step" ;
+             
+             rdfs:comment "Shows a next step of a step." ;
+             
+             rdfs:range :Step ;
+             
+             rdfs:domain :Step .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#hasPart
+
+:hasPart rdf:type owl:ObjectProperty ;
+         
+         rdfs:label "has part" ;
+         
+         rdfs:comment "" ;
+         
+         rdfs:domain :Equipment ;
+         
+         rdfs:range :Equipment ;
+         
+         owl:inverseOf :isPartOf .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#hasParticipant
+
+:hasParticipant rdf:type owl:ObjectProperty ;
+                
+                rdfs:label "has participant" ;
+                
+                rdfs:comment "A step or a process has an object directly involved in it." ;
+                
+                rdfs:domain [ rdf:type owl:Class ;
+                              owl:unionOf ( :Process
+                                            :Step
+                                          )
+                            ] ;
+                
+                rdfs:range [ rdf:type owl:Class ;
+                             owl:unionOf ( :Equipment
+                                           :Material
+                                         )
+                           ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#hasPreviousStep
+
+:hasPreviousStep rdf:type owl:ObjectProperty ;
+                 
+                 rdfs:label "has previous step" ;
+                 
+                 rdfs:comment "Shows a previous step of a step." ;
+                 
+                 rdfs:range :Step ;
+                 
+                 rdfs:domain :Step ;
+                 
+                 owl:inverseOf :hasNextStep .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#hasStep
+
+:hasStep rdf:type owl:ObjectProperty ;
+         
+         rdfs:label "has step" ;
+         
+         rdfs:comment "Shows a step of a process." ;
+         
+         rdfs:domain :Process ;
+         
+         rdfs:range :Step .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#hasSubProcess
+
+:hasSubProcess rdf:type owl:ObjectProperty ;
+               
+               rdfs:label "has sub process" ;
+               
+               rdfs:comment "Shows the subprocess of a process." ;
+               
+               rdfs:domain :Process ;
+               
+               rdfs:range :Process .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#inputRequiredBy
+
+:inputRequiredBy rdf:type owl:ObjectProperty ;
+                 
+                 rdfs:label "input required by" ;
+                 
+                 rdfs:comment "An input is required by a equipment usage." ;
+                 
+                 rdfs:range :EquipmentUsage ;
+                 
+                 rdfs:domain :Input .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#isAttributeOf
+
+:isAttributeOf rdf:type owl:ObjectProperty ;
+               
+               rdfs:label "is attribute of" ;
+               
+               rdfs:comment "An attribute belongs to an entity." ;
+               
+               rdfs:domain :Attribute ;
+               
+               owl:inverseOf :hasAttribute .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#isGeneratedFrom
+
+:isGeneratedFrom rdf:type owl:ObjectProperty ;
+                 
+                 rdfs:label "is generated from" ;
+                 
+                 rdfs:comment "Entity is created from a different model." ;
+                 
+                 rdfs:range :Model ;
+                 
+                 rdfs:domain :Model ;
+                 
+                 owl:inverseOf :generates .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#isInputOf
+
+:isInputOf rdf:type owl:ObjectProperty ;
+           
+           rdfs:label "is input of" ;
+           
+           rdfs:comment "Input is information which is fed into a piece of equipment." ;
+           
+           rdfs:range :Equipment ;
+           
+           rdfs:domain :Input ;
+           
+           owl:inverseOf :hasInput .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#isMeasuredBy
+
+:isMeasuredBy rdf:type owl:ObjectProperty ;
+              
+              rdfs:label "is measured by" ;
+              
+              rdfs:comment "Attributes of a given piece of equipment is measured by the sensor." ;
+              
+              rdfs:domain :QuantitativeAttribute ;
+              
+              rdfs:range :Sensor ;
+              
+              owl:inverseOf :measures .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#isPartOf
+
+:isPartOf rdf:type owl:ObjectProperty ;
+          
+          rdfs:label "is part of" ;
+          
+          rdfs:comment "The constituent pieces of equipment comprises a larger piece of equipment." ;
+          
+          rdfs:range :Equipment ;
+          
+          rdfs:domain :Equipment .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#isParticipantIn
+
+:isParticipantIn rdf:type owl:ObjectProperty ;
+                 
+                 rdfs:label "is participant in" ;
+                 
+                 rdfs:comment "An object directly involves in a step or process." ;
+                 
+                 owl:inverseOf :hasParticipant ;
+                 
+                 rdfs:domain [ rdf:type owl:Class ;
+                               owl:unionOf ( :Equipment
+                                             :Material
+                                             :Product
+                                           )
+                             ] ;
+                 
+                 rdfs:range [ rdf:type owl:Class ;
+                              owl:unionOf ( :Process
+                                            :Step
+                                          )
+                            ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#material
+
+:material rdf:type owl:ObjectProperty ;
+          
+          rdfs:comment "material" ,
+                       "A usage is associated with an material." ;
+          
+          rdfs:subPropertyOf prov:entity ;
+          
+          rdfs:range :Material ;
+          
+          rdfs:domain :MaterialUsage .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#measures
+
+:measures rdf:type owl:ObjectProperty ;
+          
+          rdfs:label "measures" ;
+          
+          rdfs:comment "The sensor measures one or more attributes of a given piece of equipment." ;
+          
+          rdfs:range :QuantitativeAttribute ;
+          
+          rdfs:domain :Sensor .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#model
+
+:model rdf:type owl:ObjectProperty ;
+       
+       rdfs:comment "model" ,
+                    "A usage is associated with an model." ;
+       
+       rdfs:subPropertyOf prov:entity ;
+       
+       rdfs:range :Model ;
+       
+       rdfs:domain :ModelUsage .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#movesEquipment
+
+:movesEquipment rdf:type owl:ObjectProperty ;
+                
+                rdfs:label "moves equipment" ;
+                
+                rdfs:comment "An actuator moves a piece of equipment." ;
+                
+                rdfs:domain :Actuator ;
+                
+                rdfs:range :Equipment .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#movesMaterial
+
+:movesMaterial rdf:type owl:ObjectProperty ;
+               
+               rdfs:label "moves material" ;
+               
+               rdfs:comment "An actuator moves a material." ;
+               
+               rdfs:domain :Actuator ;
+               
+               rdfs:range :Material ;
+               
+               rdfs:subPropertyOf :operatesOn .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#operatesOn
+
+:operatesOn rdf:type owl:ObjectProperty ;
+            
+            rdfs:label "operates on" ;
+            
+            rdfs:comment "Equipment affects a material." ;
+            
+            rdfs:domain :Equipment ;
+            
+            rdfs:range :Material .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#produces
+
+:produces rdf:type owl:ObjectProperty ;
+          
+          rdfs:label "produces" ;
+          
+          rdfs:comment "A step or a process produces product." ;
+          
+          rdfs:range :Product ;
+          
+          rdfs:domain [ rdf:type owl:Class ;
+                        owl:unionOf ( :Process
+                                      :Step
+                                    )
+                      ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#qualifiedEquipmentUsage
+
+:qualifiedEquipmentUsage rdf:type owl:ObjectProperty ;
+                         
+                         rdfs:label "qualified equipment usage" ;
+                         
+                         rdfs:comment "A step or process has a qualified usage of an equipment." ;
+                         
+                         rdfs:subPropertyOf prov:qualifiedUsage ;
+                         
+                         rdfs:range :EquipmentUsage ;
+                         
+                         rdfs:domain [ rdf:type owl:Class ;
+                                       owl:unionOf ( :Process
+                                                     :Step
+                                                   )
+                                     ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#qualifiedMaterialUsage
+
+:qualifiedMaterialUsage rdf:type owl:ObjectProperty ;
+                        
+                        rdfs:label "qualified material usage" ;
+                        
+                        rdfs:comment "A step or process has a qualified usage of a material." ;
+                        
+                        rdfs:subPropertyOf prov:qualifiedUsage ;
+                        
+                        rdfs:range :MaterialUsage ;
+                        
+                        rdfs:domain [ rdf:type owl:Class ;
+                                      owl:unionOf ( :Process
+                                                    :Step
+                                                  )
+                                    ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#qualifiedModelUsage
+
+:qualifiedModelUsage rdf:type owl:ObjectProperty ;
+                     
+                     rdfs:label "qualified model usage" ;
+                     
+                     rdfs:comment "A step or process has a qualified usage of a model." ;
+                     
+                     rdfs:subPropertyOf prov:qualifiedUsage ;
+                     
+                     rdfs:range :ModelUsage ;
+                     
+                     rdfs:domain [ rdf:type owl:Class ;
+                                   owl:unionOf ( :Process
+                                                 :Step
+                                               )
+                                 ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#requiresInput
+
+:requiresInput rdf:type owl:ObjectProperty ;
+               
+               rdfs:label "requires input" ;
+               
+               rdfs:comment "An equipment usage requires an input." ;
+               
+               rdfs:domain :EquipmentUsage ;
+               
+               rdfs:range :Input ;
+               
+               owl:inverseOf :inputRequiredBy .
+
+
+
+
+
+#################################################################
+#
+#    Data properties
+#
+#################################################################
+
+
+###  https://tw.rpi.edu/web/project/ampo#descriptiveValue
+
+:descriptiveValue rdf:type owl:DatatypeProperty ;
+                  
+                  rdfs:label "descriptive value" ;
+                  
+                  rdfs:comment "The abstract attribute has the descriptive value." ;
+                  
+                  rdfs:range xsd:string ;
+                  
+                  rdfs:domain :AbstractAttribute .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#downloadURL
+
+:downloadURL rdf:type owl:DatatypeProperty ;
+             
+             rdfs:label "download URL" ;
+             
+             rdfs:comment "This is a direct link to a downloadable file for the data." ;
+             
+             rdfs:range xsd:anyURI ;
+             
+             rdfs:domain [ rdf:type owl:Class ;
+                           owl:unionOf ( :DynamicQuantitativeAttribute
+                                         :QuantitativeInput
+                                       )
+                         ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#hasNumberOfSteps
+
+:hasNumberOfSteps rdf:type owl:DatatypeProperty ;
+                  
+                  rdfs:label "has number of steps" ;
+                  
+                  rdfs:comment "A process contains a certain number of steps." ;
+                  
+                  rdfs:range xsd:int ;
+                  
+                  rdfs:domain :Process .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#hasNumberOfSubProcesses
+
+:hasNumberOfSubProcesses rdf:type owl:DatatypeProperty ;
+                         
+                         rdfs:label "has number of sub processes" ;
+                         
+                         rdfs:comment "A process contains a certain number of sub processes." ;
+                         
+                         rdfs:range xsd:int ;
+                         
+                         rdfs:domain :Process .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://data.nasa.gov/qudt/owl/qudt#Quantity
+
+qudt:Quantity rdf:type owl:Class .
+
+
+
+###  http://semanticscience.org/resource/attribute
+
+sio:attribute rdf:type owl:Class .
+
+
+
+###  http://semanticscience.org/resource/object
+
+sio:object rdf:type owl:Class .
+
+
+
+###  http://semanticscience.org/resource/process
+
+sio:process rdf:type owl:Class .
+
+
+
+###  http://www.w3.org/ns/prov#Activity
+
+prov:Activity rdf:type owl:Class .
+
+
+
+###  http://www.w3.org/ns/prov#Usage
+
+prov:Usage rdf:type owl:Class .
+
+
+
+###  http://xmlns.com/foaf/0.1/Person
+
+foaf:Person rdf:type owl:Class .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#AbstractAttribute
+
+:AbstractAttribute rdf:type owl:Class ;
+                   
+                   rdfs:label "Abstract Attribute" ;
+                   
+                   rdfs:subClassOf :Attribute ;
+                   
+                   rdfs:comment "Property which does not correspond to a physical or numerical entity. Used to restrict and modify relations." .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#AbstractInput
+
+:AbstractInput rdf:type owl:Class ;
+               
+               rdfs:label "Abstract Input" ;
+               
+               rdfs:subClassOf :Input ;
+               
+               rdfs:comment "Type of Input that is descriptive in nature, not quantitative." .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#Actuator
+
+:Actuator rdf:type owl:Class ;
+          
+          rdfs:label "Actuator" ;
+          
+          rdfs:subClassOf :Equipment ;
+          
+          rdfs:comment "Physical entity which moves other entities." .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#Attribute
+
+:Attribute rdf:type owl:Class ;
+           
+           rdfs:label "Attribute" ;
+           
+           rdfs:subClassOf sio:attribute ;
+           
+           rdfs:comment "An intrinsic property belonging to a single entity." .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#BuildMaterial
+
+:BuildMaterial rdf:type owl:Class ;
+               
+               rdfs:label "Build Material" ;
+               
+               rdfs:subClassOf :Material ;
+               
+               rdfs:comment "A material used to create product." .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#Capacity
+
+:Capacity rdf:type owl:Class ;
+          
+          rdfs:label "Capacity" ;
+          
+          rdfs:subClassOf :Attribute ;
+          
+          rdfs:comment "Property of the equipment or the surrounding environment describing the ability to perform or produce." .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#Chemical
+
+:Chemical rdf:type owl:Class ;
+          
+          rdfs:label "Chemical" ;
+          
+          rdfs:subClassOf :Attribute ;
+          
+          rdfs:comment "Chemical property of an entity. Examples include melting point." .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#DynamicQuantitativeAttribute
+
+:DynamicQuantitativeAttribute rdf:type owl:Class ;
+                              
+                              rdfs:label "Dynamic Quantitative Attribute" ;
+                              
+                              rdfs:subClassOf :QuantitativeAttribute ;
+                              
+                              rdfs:comment "An attribute that is a function of time." .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#Energizer
+
+:Energizer rdf:type owl:Class ;
+           
+           rdfs:label "Energizer" ;
+           
+           rdfs:subClassOf :Equipment ;
+           
+           rdfs:comment "Physical entity which adds energy to other entities, usually a material." .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#EnvironmentalMaterial
+
+:EnvironmentalMaterial rdf:type owl:Class ;
+                       
+                       rdfs:label "Environmental Material" ;
+                       
+                       rdfs:subClassOf :Material ;
+                       
+                       rdfs:comment "A material not directly used to produce the product." .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#Equipment
+
+:Equipment rdf:type owl:Class ;
+           
+           rdfs:label "Equipment" ;
+           
+           rdfs:subClassOf sio:object ;
+           
+           rdfs:comment "Physical entity used to affect other entities in some way." .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#EquipmentUsage
+
+:EquipmentUsage rdf:type owl:Class ;
+                
+                rdfs:subClassOf prov:Usage ;
+                
+                rdfs:comment "A process or a step's usage of an equipment." .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#Geometric
+
+:Geometric rdf:type owl:Class ;
+           
+           rdfs:label "Geometric" ;
+           
+           rdfs:subClassOf :Attribute ;
+           
+           rdfs:comment "Attribute which describes the shape." .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#Input
+
+:Input rdf:type owl:Class ;
+       
+       rdfs:label "Input" ;
+       
+       rdfs:subClassOf sio:attribute ;
+       
+       rdfs:comment "Information that must be fed to the attribute and entity." .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#Material
+
+:Material rdf:type owl:Class ;
+          
+          rdfs:label "Material" ;
+          
+          rdfs:subClassOf sio:object ;
+          
+          rdfs:comment "Object modified in a manufacturing process." .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#MaterialUsage
+
+:MaterialUsage rdf:type owl:Class ;
+               
+               rdfs:subClassOf prov:Usage ;
+               
+               rdfs:comment "A process or a step's usage of a material." .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#Mechanical
+
+:Mechanical rdf:type owl:Class ;
+            
+            rdfs:label "Mechanical" ;
+            
+            rdfs:subClassOf :Attribute ;
+            
+            rdfs:comment "Mechanical property of an entity. Examples include strength." .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#Model
+
+:Model rdf:type owl:Class ;
+       
+       rdfs:label "Model" ;
+       
+       rdfs:subClassOf sio:object ;
+       
+       rdfs:comment "Combination of CAD and slicer models which dictate actuator paths and iteration count." .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#ModelUsage
+
+:ModelUsage rdf:type owl:Class ;
+            
+            rdfs:subClassOf prov:Usage ;
+            
+            rdfs:comment "A process or a step's usage of a model." .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#Optical
+
+:Optical rdf:type owl:Class ;
+         
+         rdfs:label "Optical" ;
+         
+         rdfs:subClassOf :Attribute ;
+         
+         rdfs:comment "Optical property of an entity. Examples include reflectivity." .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#Process
+
+:Process rdf:type owl:Class ;
+         
+         rdfs:label "Process" ;
+         
+         rdfs:subClassOf sio:process ,
+                         prov:Activity ;
+         
+         owl:disjointWith :Step ;
+         
+         rdfs:comment "A series of operations performed on Materials or Equipment." .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#Product
+
+:Product rdf:type owl:Class ;
+         
+         rdfs:label "Product" ;
+         
+         rdfs:subClassOf sio:object ;
+         
+         rdfs:comment "End result or work-in-progress result of processes or steps." .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#QuantitativeAttribute
+
+:QuantitativeAttribute rdf:type owl:Class ;
+                       
+                       rdfs:label "Quantitative Attribute" ;
+                       
+                       rdfs:subClassOf :Attribute ;
+                       
+                       rdfs:comment "Property which quantifies the quantity of an artifact. Examples include surface roughness." .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#QuantitativeInput
+
+:QuantitativeInput rdf:type owl:Class ;
+                   
+                   rdfs:label "Quantitative Input" ;
+                   
+                   rdfs:subClassOf qudt:Quantity ,
+                                   :Input ;
+                   
+                   rdfs:comment "Type of Input that is quantitative in nature. Has a specific value or range." .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#Sensor
+
+:Sensor rdf:type owl:Class ;
+        
+        rdfs:label "Sensor" ;
+        
+        rdfs:subClassOf :Equipment ;
+        
+        rdfs:comment "A piece of equipment that collects information throughout the given process." .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#StaticQuantitativeAttribute
+
+:StaticQuantitativeAttribute rdf:type owl:Class ;
+                             
+                             rdfs:label "Static Quantitative Attribute" ;
+                             
+                             rdfs:subClassOf qudt:Quantity ,
+                                             :QuantitativeAttribute ;
+                             
+                             rdfs:comment "An attribute that remains the same throughout the process." .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#Step
+
+:Step rdf:type owl:Class ;
+      
+      rdfs:label "Step" ;
+      
+      rdfs:subClassOf sio:process ,
+                      prov:Activity ;
+      
+      rdfs:comment "A single operation performed on Materials or Equipment." .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#SupportMaterial
+
+:SupportMaterial rdf:type owl:Class ;
+                 
+                 rdfs:label "Support Material" ;
+                 
+                 rdfs:subClassOf :Material ;
+                 
+                 rdfs:comment "A material used to create support structures. Usually removed during post-processing." .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#Thermal
+
+:Thermal rdf:type owl:Class ;
+         
+         rdfs:label "Thermal" ;
+         
+         rdfs:subClassOf :Attribute ;
+         
+         rdfs:comment "Thermal property of an entity. Examples include thermal conductivity." .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#WorkingVolume
+
+:WorkingVolume rdf:type owl:Class ;
+               
+               rdfs:label "Working Volume" ;
+               
+               rdfs:subClassOf :Equipment ;
+               
+               rdfs:comment "Physical entity which contains other physical entities." .
+
+
+
+
+
+#################################################################
+#
+#    Individuals
+#
+#################################################################
+
+
+###  https://tw.rpi.edu/web/project/ampo#Bryan_Chu
+
+:Bryan_Chu rdf:type owl:NamedIndividual ,
+                    foaf:Person ;
+           
+           foaf:name "Bryan Chu" ;
+           
+           foaf:mbox <mailto:chub3@rpi.edu> .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#Congrui_Li
+
+:Congrui_Li rdf:type owl:NamedIndividual ,
+                     foaf:Person ;
+            
+            foaf:name "Congrui Li" ;
+            
+            foaf:mbox <mailto:lic10@rpi.edu> .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#Hao_Zhong
+
+:Hao_Zhong rdf:type owl:NamedIndividual ,
+                    foaf:Person ;
+           
+           foaf:name "Hao Zhong" ;
+           
+           foaf:mbox <mailto:zhongh3@rpi.edu> .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#James_Nowak
+
+:James_Nowak rdf:type owl:NamedIndividual ,
+                      foaf:Person ;
+             
+             foaf:name "James Nowak" ;
+             
+             foaf:mbox <mailto:nowakj2@rpi.edu> .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#Johnson_Samuel
+
+:Johnson_Samuel rdf:type owl:NamedIndividual ,
+                         foaf:Person ;
+                
+                foaf:name "Johnson Samuel" ;
+                
+                foaf:mbox <mailto:samuej2@rpi.edu> .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#Peter_Fox
+
+:Peter_Fox rdf:type owl:NamedIndividual ,
+                    foaf:Person ;
+           
+           foaf:name "Peter Fox" ;
+           
+           foaf:mbox <mailto:foxp@rpi.edu> .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#Uduak_Inyang_Udoh
+
+:Uduak_Inyang_Udoh rdf:type owl:NamedIndividual ,
+                            foaf:Person ;
+                   
+                   foaf:name "Uduak Inyang-Udoh" ;
+                   
+                   foaf:mbox <mailto:inyanu@rpi.edu> .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo#Xiaogang_Ma
+
+:Xiaogang_Ma rdf:type owl:NamedIndividual ,
+                      foaf:Person ;
+             
+             foaf:name "Xiaogang Ma" ;
+             
+             foaf:mbox <mailto:max7@rpi.edu> .
+
+
+
+
+###  Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net
+

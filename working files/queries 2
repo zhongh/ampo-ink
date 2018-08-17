@@ -1,0 +1,594 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ampo: <https://tw.rpi.edu/web/project/ampo#> 
+PREFIX ampo-ink: <https://tw.rpi.edu/web/project/ampo-ink#> 
+PREFIX qudt: <http://data.nasa.gov/qudt/owl/qudt#> 
+
+SELECT ?ink ?color ?color_label ?density ?density_quantity ?density_unit ?density_value
+	WHERE { 
+?ink rdf:type ampo-ink:Ink .
+?ink ampo:hasAttribute ?color , ?density .
+?color rdf:type ampo-ink:Ink_Color .
+?color rdfs:label ?color_label .
+?density qudt:quantityValue ?density_quantity .
+?density_quantity qudt:numericValue ?density_value .
+?density_quantity qudt:numericValue ?density_unit .
+}
+
+
+
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ampo: <https://tw.rpi.edu/web/project/ampo#> 
+PREFIX ampo-ink: <https://tw.rpi.edu/web/project/ampo-ink#> 
+PREFIX qudt: <http://data.nasa.gov/qudt/owl/qudt#> 
+PREFIX qudt-unit: <http://qudt.org/1.1/vocab/unit#> 
+
+SELECT ?density ?density_quantity ?density_value ?density_unit 
+	WHERE { 
+?density qudt:quantityValue ?density_quantity .
+?density_quantity qudt:numericValue ?density_value .
+?density_quantity qudt:unit ?density_unit .
+}
+
+
+
+
+,
+                                                                                 [ rdf:type: :ActuatorNozzle_HeaterBlockTemperature ;
+                                                                                   qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                                                                        qudt:numericValue "26"^^xsd:float ;
+                                                                                                        qudt-unit:DegreeCelsius
+                                                                                                      ]
+                                                                                 ]
+
+
+
+
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#DropletActuation_TR-1
+
+:DropletActuation_TR-1 rdf:type :Actuator_DropletActuation ;
+
+                       rdfs:label "TR-1"^^xsd:string ;
+
+                       ampo:hasAttribute [ rdf:type :DropletActuation_DwellTime ;
+                                           rdfs:label "Dwell Time (μs)"^^xsd:string ;
+                                           qudt:quantityValue [ qudt:numericValue "2.0"^^xsd:double ;
+                                                                qudt:unit qudt-unit:MicroSecond
+                                                              ]
+                                         ] ,
+                                         [ rdf:type :DropletActuation_FallTime ;
+                                           rdfs:label "Fall Time (μs)"^^xsd:string ;
+                                           qudt:quantityValue [ qudt:numericValue "3.0"^^xsd:double ;
+                                                                qudt:unit qudt-unit:MicroSecond
+                                                              ]
+                                         ] ,
+                                         [ rdf:type :DropletActuation_RiseTime ;
+                                           rdfs:label "Rise Time (μs)"^^xsd:string ;
+                                           qudt:quantityValue [ qudt:numericValue "1.0"^^xsd:double ;
+                                                                qudt:unit qudt-unit:MicroSecond
+                                                              ]
+                                         ] ,
+                                         [ rdf:type :DropletActuation_Amplitude ;
+                                           rdfs:label "Amplitude (V)"^^xsd:string ;
+                                           qudt:quantityValue [ qudt:numericValue "9.0"^^xsd:double ;
+                                                                qudt:unit qudt-unit:Volt
+                                                              ]
+                                         ] ,
+                                         [ rdf:type :DropletActuation_WaveformType ;
+                                           rdfs:label "Waveform Type"^^xsd:string ;
+                                           ampo:descriptiveValue "12"^^xsd:string
+                                         ] ,
+                                         [ rdf:type :DropletActuation_FinalRiseTime ;
+                                           rdfs:label "Final Rise Time (μs)"^^xsd:string ;
+                                           qudt:quantityValue [ qudt:numericValue "5.0"^^xsd:double ;
+                                                                qudt:unit qudt-unit:MicroSecond
+                                                              ]
+                                         ] ,
+                                         [ rdf:type :DropletActuation_LineType ;
+                                           rdfs:label "Line Type"^^xsd:string ;
+                                           ampo:descriptiveValue "11"^^xsd:string
+                                         ] ,
+                                         [ rdf:type :DropletActuation_EchoTime ;
+                                           rdfs:label "Echo Time (μs)"^^xsd:string ;
+                                           qudt:quantityValue [ qudt:numericValue "4.0"^^xsd:double ;
+                                                                qudt:unit qudt-unit:MicroSecond
+                                                              ]
+                                         ] ,
+                                         [ rdf:type :DropletActuation_IdleVoltage ;
+                                           rdfs:label "Idle Voltage (V)"^^xsd:string ;
+                                           qudt:quantityValue [ qudt:numericValue "10.0"^^xsd:double ;
+                                                                qudt:unit qudt-unit:Volt
+                                                              ]
+                                         ] ,
+                                         [ rdf:type :DropletActuation_MaxVoltageAmplitude ;
+                                           rdfs:label "Maximum Voltage Amplitude (V)"^^xsd:string ;
+                                           qudt:quantityValue [ qudt:numericValue "6.0"^^xsd:double ;
+                                                                qudt:unit qudt-unit:Volt
+                                                              ]
+                                         ] ,
+                                         [ rdf:type :DropletActuation_Period ;
+                                           rdfs:label "Period (μs)"^^xsd:string ;
+                                           qudt:quantityValue [ qudt:numericValue "8.0"^^xsd:double ;
+                                                                qudt:unit qudt-unit:MicroSecond
+                                                              ]
+                                         ] ,
+                                         [ rdf:type :DropletActuation_MinVoltageAmplitude ;
+                                           rdfs:label "Minimum Voltage Amplitude (V)"^^xsd:string ;
+                                           qudt:quantityValue [ qudt:numericValue "7.0"^^xsd:double ;
+                                                                qudt:unit qudt-unit:Volt
+                                                              ]
+                                         ] .
+
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#DropletActuation_TR-104
+
+:DropletActuation_TR-104 rdf:type :Actuator_DropletActuation ;
+
+                       rdfs:label "TR-104"^^xsd:string ;
+
+                       ampo:hasAttribute [ rdf:type :DropletActuation_DwellTime ;
+                                           rdfs:label "Dwell Time (μs)"^^xsd:string ;
+                                           qudt:quantityValue [ qudt:numericValue "20"^^xsd:double ;
+                                                                qudt:unit qudt-unit:MicroSecond
+                                                              ]
+                                         ] ,
+                                         [ rdf:type :DropletActuation_FallTime ;
+                                           rdfs:label "Fall Time (μs)"^^xsd:string ;
+                                           qudt:quantityValue [ qudt:numericValue "4"^^xsd:double ;
+                                                                qudt:unit qudt-unit:MicroSecond
+                                                              ]
+                                         ] ,
+                                         [ rdf:type :DropletActuation_RiseTime ;
+                                           rdfs:label "Rise Time (μs)"^^xsd:string ;
+                                           qudt:quantityValue [ qudt:numericValue "2"^^xsd:double ;
+                                                                qudt:unit qudt-unit:MicroSecond
+                                                              ]
+                                         ] ,
+                                         [ rdf:type :DropletActuation_Amplitude ;
+                                           rdfs:label "Amplitude (V)"^^xsd:string ;
+                                           qudt:quantityValue [ qudt:numericValue ""^^xsd:double ;
+                                                                qudt:unit qudt-unit:Volt
+                                                              ]
+                                         ] ,
+                                         [ rdf:type :DropletActuation_WaveformType ;
+                                           rdfs:label "Waveform Type"^^xsd:string ;
+                                           ampo:descriptiveValue "Unsymmetric Bipolar Waveform"^^xsd:string
+                                         ] ,
+                                         [ rdf:type :DropletActuation_FinalRiseTime ;
+                                           rdfs:label "Final Rise Time (μs)"^^xsd:string ;
+                                           qudt:quantityValue [ qudt:numericValue "2"^^xsd:double ;
+                                                                qudt:unit qudt-unit:MicroSecond
+                                                              ]
+                                         ] ,
+                                         [ rdf:type :DropletActuation_LineType ;
+                                           rdfs:label "Line Type"^^xsd:string ;
+                                           ampo:descriptiveValue "Bipolar Lines"^^xsd:string
+                                         ] ,
+                                         [ rdf:type :DropletActuation_EchoTime ;
+                                           rdfs:label "Echo Time (μs)"^^xsd:string ;
+                                           qudt:quantityValue [ qudt:numericValue "20"^^xsd:double ;
+                                                                qudt:unit qudt-unit:MicroSecond
+                                                              ]
+                                         ] ,
+                                         [ rdf:type :DropletActuation_IdleVoltage ;
+                                           rdfs:label "Idle Voltage (V)"^^xsd:string ;
+                                           qudt:quantityValue [ qudt:numericValue ""^^xsd:double ;
+                                                                qudt:unit qudt-unit:Volt
+                                                              ]
+                                         ] ,
+                                         [ rdf:type :DropletActuation_MaxVoltageAmplitude ;
+                                           rdfs:label "Maximum Voltage Amplitude (V)"^^xsd:string ;
+                                           qudt:quantityValue [ qudt:numericValue "20"^^xsd:double ;
+                                                                qudt:unit qudt-unit:Volt
+                                                              ]
+                                         ] ,
+                                         [ rdf:type :DropletActuation_Period ;
+                                           rdfs:label "Period (μs)"^^xsd:string ;
+                                           qudt:quantityValue [ qudt:numericValue ""^^xsd:double ;
+                                                                qudt:unit qudt-unit:MicroSecond
+                                                              ]
+                                         ] ,
+                                         [ rdf:type :DropletActuation_MinVoltageAmplitude ;
+                                           rdfs:label "Minimum Voltage Amplitude (V)"^^xsd:string ;
+                                           qudt:quantityValue [ qudt:numericValue "-10"^^xsd:double ;
+                                                                qudt:unit qudt-unit:Volt
+                                                              ]
+                                         ] .
+
+
+
+
+####################### Sunday$##########3
+
+#################################################################
+#
+#    Individuals
+#
+#################################################################
+
+
+###  http://qudt.org/1.1/vocab/unit#DegreeCelsius
+
+qudt-unit:DegreeCelsius rdf:type owl:NamedIndividual .
+
+
+
+###  http://qudt.org/1.1/vocab/unit#KilogramPerCubicMeter
+
+qudt-unit:KilogramPerCubicMeter rdf:type owl:NamedIndividual .
+
+
+
+###  http://qudt.org/1.1/vocab/unit#MeterPerSecond
+
+qudt-unit:MeterPerSecond rdf:type owl:NamedIndividual .
+
+
+
+###  http://qudt.org/1.1/vocab/unit#MicroSecond
+
+qudt-unit:MicroSecond rdf:type owl:NamedIndividual .
+
+
+
+###  http://qudt.org/1.1/vocab/unit#Micrometer
+
+qudt-unit:Micrometer rdf:type owl:NamedIndividual .
+
+
+
+###  http://qudt.org/1.1/vocab/unit#NewtonPerMeter
+
+qudt-unit:NewtonPerMeter rdf:type owl:NamedIndividual .
+
+
+
+###  http://qudt.org/1.1/vocab/unit#PascalSecond
+
+qudt-unit:PascalSecond rdf:type owl:NamedIndividual .
+
+
+
+###  http://qudt.org/1.1/vocab/unit#Volt
+
+qudt-unit:Volt rdf:type owl:NamedIndividual .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#DropletActuation_TR-1
+
+:DropletActuation_TR-1 rdf:type owl:NamedIndividual ,
+                                :Actuator_DropletActuation ;
+
+                       rdfs:label "TR-1 "^^xsd:string ;
+
+                       ampo:hasAttribute [ rdf:type :DropletActuation_WaveformType ;
+                                           rdfs:label "Waveform Type"^^xsd:string ;
+                                           ampo:descriptiveValue "Symmetric Bipolar Waveform"^^xsd:string
+                                         ] ,
+                                         [ rdf:type :DropletActuation_RiseTime ;
+                                           rdfs:label "Rise Time (μs)"^^xsd:string ;
+                                           qudt:quantityValue [ qudt:numericValue "2.0"^^xsd:double ;
+                                                                qudt:unit qudt-unit:MicroSecond
+                                                              ]
+                                         ] ,
+                                         [ rdf:type :DropletActuation_FallTime ;
+                                           rdfs:label "Fall Time (μs)"^^xsd:string ;
+                                           qudt:quantityValue [ qudt:numericValue "4.0"^^xsd:double ;
+                                                                qudt:unit qudt-unit:MicroSecond
+                                                              ]
+                                         ] ,
+                                         [ rdf:type :DropletActuation_EchoTime ;
+                                           rdfs:label "Echo Time (μs)"^^xsd:string ;
+                                           qudt:quantityValue [ qudt:numericValue "20.0"^^xsd:double ;
+                                                                qudt:unit qudt-unit:MicroSecond
+                                                              ]
+                                         ] ,
+                                         [ rdf:type :DropletActuation_MinVoltageAmplitude ;
+                                           rdfs:label "Minimum Voltage Amplitude (V)"^^xsd:string ;
+                                           qudt:quantityValue [ qudt:numericValue "-50.0"^^xsd:double ;
+                                                                qudt:unit qudt-unit:Volt
+                                                              ]
+                                         ] ,
+                                         [ rdf:type :DropletActuation_FinalRiseTime ;
+                                           rdfs:label "Final Rise Time (μs)"^^xsd:string ;
+                                           qudt:quantityValue [ qudt:numericValue "2.0"^^xsd:double ;
+                                                                qudt:unit qudt-unit:MicroSecond
+                                                              ]
+                                         ] ,
+                                         [ rdf:type :DropletActuation_MaxVoltageAmplitude ;
+                                           rdfs:label "Maximum Voltage Amplitude (V)"^^xsd:string ;
+                                           qudt:quantityValue [ qudt:numericValue "50.0"^^xsd:double ;
+                                                                qudt:unit qudt-unit:Volt
+                                                              ]
+                                         ] ,
+                                         [ rdf:type :DropletActuation_LineType ;
+                                           rdfs:label "Line Type"^^xsd:string ;
+                                           ampo:descriptiveValue "Bipolar Lines"^^xsd:string
+                                         ] ,
+                                         [ rdf:type :DropletActuation_Amplitude ;
+                                           rdfs:label "Amplitude (V)"^^xsd:string ;
+                                           qudt:quantityValue [ qudt:numericValue ""^^xsd:double ;
+                                                                qudt:unit qudt-unit:Volt
+                                                              ]
+                                         ] ,
+                                         [ rdf:type :DropletActuation_Period ;
+                                           rdfs:label "Period (μs)"^^xsd:string ;
+                                           qudt:quantityValue [ qudt:numericValue ""^^xsd:double ;
+                                                                qudt:unit qudt-unit:MicroSecond
+                                                              ]
+                                         ] ,
+                                         [ rdf:type :DropletActuation_DwellTime ;
+                                           rdfs:label "Dwell Time (μs)"^^xsd:string ;
+                                           qudt:quantityValue [ qudt:numericValue "20.0"^^xsd:double ;
+                                                                qudt:unit qudt-unit:MicroSecond
+                                                              ]
+                                         ] ,
+                                         [ rdf:type :DropletActuation_IdleVoltage ;
+                                           rdfs:label "Idle Voltage (V)"^^xsd:string ;
+                                           qudt:quantityValue [ qudt:numericValue ""^^xsd:double ;
+                                                                qudt:unit qudt-unit:Volt
+                                                              ]
+                                         ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Fifty_Glycerol
+
+:Fifty_Glycerol rdf:type owl:NamedIndividual ,
+                         :Ink ;
+
+                rdfs:label "50 Glycerol"^^xsd:string ;
+
+                ampo:hasAttribute [ rdf:type :Ink_DynamicViscosity ;
+                                    rdfs:label "Dynamic Viscosity"^^xsd:string ;
+                                    qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                         qudt:numericValue "0.0069"^^xsd:double ;
+                                                         qudt:unit qudt-unit:PascalSecond
+                                                       ]
+                                  ] ,
+                                  [ rdf:type :Ink_Density ;
+                                    rdfs:label "Density"^^xsd:string ;
+                                    qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                         qudt:numericValue "1144.2"^^xsd:double ;
+                                                         qudt:unit qudt-unit:KilogramPerCubicMeter
+                                                       ]
+                                  ] ,
+                                  [ rdf:type :Ink_SurfaceTension ;
+                                    rdfs:label "Surface Tension"^^xsd:string ;
+                                    qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                         qudt:numericValue "0.069"^^xsd:double ;
+                                                         qudt:unit qudt-unit:NewtonPerMeter
+                                                       ]
+                                  ] ,
+                                  [ rdf:type :Ink_Color ;
+                                    rdfs:label "Color"^^xsd:string ;
+                                    ampo:descriptiveValue "Clear"^^xsd:string
+                                  ] .
+
+
+### First we create a process
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Fifty_Glycerol_Ink_A
+
+:Fifty_Glycerol_Ink_A rdf:type owl:NamedIndividual ,
+                               :DropletProductionProcess ;
+
+# Next we assign a step to this process
+
+Fifty_Glycerol_Ink_A ampo:hasStep :Fifty_Glycerol_Ink_A_Ejection_1_of_118 .
+
+
+# And define this step as well it's product
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Fifty_Glycerol_Ink_A_Droplet_1_of_118
+
+:Fifty_Glycerol_Ink_A_Droplet_1_of_118 rdf:type owl:NamedIndividual ,
+                                                :Droplet ;
+
+                                       rdfs:label "Fifty_Glycerol_Ink_A_Droplet_1_of_118"^^xsd:string ;
+
+                                       ampo:hasAttribute [ rdf:type :Droplet_Visible ;
+                                                           rdf:value "true"^^xsd:boolean
+                                                         ] ,
+                                                         [ rdf:type :Droplet_Ejected ;
+                                                           rdf:value "true"^^xsd:boolean
+                                                         ] ,
+                                                         [ rdf:type :Droplet_DistanceTraveled ;
+                                                           qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                                                qudt:numericValue "503.72"^^xsd:double ;
+                                                                                qudt:unit qudt-unit:Micrometer
+                                                                              ]
+                                                         ] ,
+                                                         [ rdf:type :Droplet_TimeFrame_2 ;
+                                                           qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                                                qudt:numericValue "667.0"^^xsd:double ;
+                                                                                qudt:unit qudt-unit:MicroSecond
+                                                                              ]
+                                                         ] ,
+                                                         [ rdf:type :Droplet_Velocity ;
+                                                           qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                                                qudt:numericValue "2.24"^^xsd:double ;
+                                                                                qudt:unit qudt-unit:MeterPerSecond
+                                                                              ]
+                                                         ] ,
+                                                         [ rdf:type :Droplet_TimeFrame_1 ;
+                                                           qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                                                qudt:numericValue "442.0"^^xsd:double ;
+                                                                                qudt:unit qudt-unit:MicroSecond
+                                                                              ]
+                                                         ] ,
+                                                         [ rdf:type :Droplet_Diameter ;
+                                                           qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                                                qudt:numericValue "109.47"^^xsd:double ;
+                                                                                qudt:unit qudt-unit:Micrometer
+                                                                              ]
+                                                         ] ,
+                                                         [ rdf:type :Droplet_Tail ;
+                                                           rdf:value "false"^^xsd:boolean
+                                                         ] ,
+                                                         [ rdf:type :Droplet_Satellites ;
+                                                           rdf:value "false"^^xsd:boolean
+                                                         ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Fifty_Glycerol_Ink_A_Ejection_1_of_118
+
+:Fifty_Glycerol_Ink_A_Ejection_1_of_118 rdf:type owl:NamedIndividual ,
+                                                 :MaterialDeposition ;
+
+                                        rdfs:label "Fifty_Glycerol_Ink_A_Ejection_1_of_118 "^^xsd:string ;
+
+                                        ampo:hasParticipant :Fifty_Glycerol ;
+
+                                        ampo:produces :Fifty_Glycerol_Ink_A_Droplet_1_of_118 ;
+
+                                        ampo:hasParticipant :Nozzle_BC ;
+
+                                        ampo:qualifiedEquipmentUsage [ rdf:type ampo:EquipmentUsage ;
+                                                                       ampo:requiresInput :DropletActuation_TR-1 ;
+                                                                       ampo:equipment :Nozzle_BC ;
+                                                                       ampo:requiresInput [ rdf:type :ActuatorNozzle_HeaterBlockTemperature ;
+                                                                                            ampo:isInputOf :Nozzle_BC ;
+                                                                                            qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                                                                                 qudt:numericValue "26.0"^^xsd:float ;
+                                                                                                                 qudt:unit qudt-unit:DegreeCelsius
+                                                                                                               ]
+                                                                                          ]
+                                                                     ] .
+
+### Other triples
+:Nozzle_BC      ampo:isParticipantIn :Fifty_Glycerol_Ink_A_Ejection_1_of_118 .
+:Fifty_Glycerol ampo:isParticipantIn :Fifty_Glycerol_Ink_A_Ejection_1_of_118 .
+:DropletActuation_TR-1 ampo:isInputOf :Nozzle_BC .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Nozzle_BC
+
+:Nozzle_BC rdf:type owl:NamedIndividual ,
+                    :ActuatorNozzle ;
+
+           rdfs:label "BC"^^xsd:string ;
+
+           ampo:hasAttribute [ rdf:type :ActuatorNozzle_OrificeMaterial ;
+                               ampo:descriptiveValue "TBD"^^xsd:string
+                             ] .
+
+
+
+############### sunday night
+
+### First we create a process
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Proc_Fifty_Glycerol_A
+
+:Proc_Fifty_Glycerol_A rdf:type owl:NamedIndividual ,
+                               :DropletProductionProcess .
+
+# Next we assign a step to this process
+
+:Proc_Fifty_Glycerol_A ampo:hasStep :Step_Fifty_Glycerol_A_Ejection_1_of_118 .
+
+
+# And define this step as well it's product
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Prod_Fifty_Glycerol_A_Droplet_1_of_118
+
+:Prod_Fifty_Glycerol_A_Droplet_1_of_118 rdf:type owl:NamedIndividual ,
+                                                 :Droplet ;
+
+                                        rdfs:label "Fifty_Glycerol_Ink_A_Droplet_1_of_118"^^xsd:string ;
+
+                                        ampo:hasAttribute [ rdf:type :Droplet_Visible ;
+                                                           rdf:value "true"^^xsd:boolean
+                                                         ] ,
+                                                         [ rdf:type :Droplet_Ejected ;
+                                                           rdf:value "true"^^xsd:boolean
+                                                         ] ,
+                                                         [ rdf:type :Droplet_DistanceTraveled ;
+                                                           qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                                                qudt:numericValue "503.72"^^xsd:double ;
+                                                                                qudt:unit qudt-unit:Micrometer
+                                                                              ]
+                                                         ] ,
+                                                         [ rdf:type :Droplet_TimeFrame_2 ;
+                                                           qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                                                qudt:numericValue "667.0"^^xsd:double ;
+                                                                                qudt:unit qudt-unit:MicroSecond
+                                                                              ]
+                                                         ] ,
+                                                         [ rdf:type :Droplet_Velocity ;
+                                                           qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                                                qudt:numericValue "2.24"^^xsd:double ;
+                                                                                qudt:unit qudt-unit:MeterPerSecond
+                                                                              ]
+                                                         ] ,
+                                                         [ rdf:type :Droplet_TimeFrame_1 ;
+                                                           qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                                                qudt:numericValue "442.0"^^xsd:double ;
+                                                                                qudt:unit qudt-unit:MicroSecond
+                                                                              ]
+                                                         ] ,
+                                                         [ rdf:type :Droplet_Diameter ;
+                                                           qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                                                qudt:numericValue "109.47"^^xsd:double ;
+                                                                                qudt:unit qudt-unit:Micrometer
+                                                                              ]
+                                                         ] ,
+                                                         [ rdf:type :Droplet_Tail ;
+                                                           rdf:value "false"^^xsd:boolean
+                                                         ] ,
+                                                         [ rdf:type :Droplet_Satellites ;
+                                                           rdf:value "false"^^xsd:boolean
+                                                         ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Step_Fifty_Glycerol_A_Ejection_1_of_118
+
+:Step_Fifty_Glycerol_A_Ejection_1_of_118 rdf:type owl:NamedIndividual ,
+                                                  :MaterialDeposition ;
+
+                                         rdfs:label "Fifty_Glycerol_Ink_A_Ejection_1_of_118"^^xsd:string ;
+
+                                         ampo:hasParticipant :Fifty_Glycerol ;
+
+                                         ampo:produces :Prod_Fifty_Glycerol_A_Droplet_1_of_118 ;
+
+                                         ampo:hasParticipant :Nozzle_BC ;
+
+                                         ampo:qualifiedEquipmentUsage [ rdf:type ampo:EquipmentUsage ;
+                                                                       ampo:requiresInput :DropletActuation_TR-1 ;
+                                                                       ampo:equipment :Nozzle_BC ;
+                                                                       ampo:requiresInput [ rdf:type :ActuatorNozzle_HeaterBlockTemperature ;
+                                                                                            ampo:isInputOf :Nozzle_BC ;
+                                                                                            qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                                                                                 qudt:numericValue "26.0"^^xsd:float ;
+                                                                                                                 qudt:unit qudt-unit:DegreeCelsius
+                                                                                                               ]
+                                                                                          ]
+                                                                     ] .
+
+
+
+
+
+### Other triples
+:Nozzle_BC              ampo:isParticipantIn :Step_Fifty_Glycerol_A_Ejection_1_of_118 .
+:Fifty_Glycerol         ampo:isParticipantIn :Step_Fifty_Glycerol_A_Ejection_1_of_118 .
+:Nozzle_BC              ampo:hasInput :DropletActuation_TR-1 .
+:DropletActuation_TR-1  ampo:isInputOf :Nozzle_BC .
+

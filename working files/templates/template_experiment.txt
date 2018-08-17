@@ -1,0 +1,103 @@
+###  https://tw.rpi.edu/web/project/ampo-ink#Proc_${proc_id}
+
+:Proc_${proc_id} rdf:type owl:NamedIndividual ,
+                          :DropletProductionProcess .
+
+# Next we assign a step to this process
+
+:Proc_Fifty_Glycerol_A ampo:hasStep :Step_Fifty_Glycerol_A_Ejection_1_of_118 .
+
+
+# And define this step as well it's product
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Prod_Fifty_Glycerol_A_Droplet_1_of_118
+
+:Prod_Fifty_Glycerol_A_Droplet_1_of_118 rdf:type owl:NamedIndividual ,
+                                                 :Droplet ;
+
+                                        rdfs:label "Fifty_Glycerol_Ink_A_Droplet_1_of_118"^^xsd:string ;
+
+                                        ampo:hasAttribute [ rdf:type :Droplet_Visible ;
+                                                           rdf:value "true"^^xsd:boolean
+                                                         ] ,
+                                                         [ rdf:type :Droplet_Ejected ;
+                                                           rdf:value "true"^^xsd:boolean
+                                                         ] ,
+                                                         [ rdf:type :Droplet_DistanceTraveled ;
+                                                           qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                                                qudt:numericValue "503.72"^^xsd:double ;
+                                                                                qudt:unit qudt-unit:Micrometer
+                                                                              ]
+                                                         ] ,
+                                                         [ rdf:type :Droplet_TimeFrame_2 ;
+                                                           qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                                                qudt:numericValue "667.0"^^xsd:double ;
+                                                                                qudt:unit qudt-unit:MicroSecond
+                                                                              ]
+                                                         ] ,
+                                                         [ rdf:type :Droplet_Velocity ;
+                                                           qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                                                qudt:numericValue "2.24"^^xsd:double ;
+                                                                                qudt:unit qudt-unit:MeterPerSecond
+                                                                              ]
+                                                         ] ,
+                                                         [ rdf:type :Droplet_TimeFrame_1 ;
+                                                           qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                                                qudt:numericValue "442.0"^^xsd:double ;
+                                                                                qudt:unit qudt-unit:MicroSecond
+                                                                              ]
+                                                         ] ,
+                                                         [ rdf:type :Droplet_Diameter ;
+                                                           qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                                                qudt:numericValue "109.47"^^xsd:double ;
+                                                                                qudt:unit qudt-unit:Micrometer
+                                                                              ]
+                                                         ] ,
+                                                         [ rdf:type :Droplet_Tail ;
+                                                           rdf:value "false"^^xsd:boolean
+                                                         ] ,
+                                                         [ rdf:type :Droplet_Satellites ;
+                                                           rdf:value "false"^^xsd:boolean
+                                                         ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Step_Fifty_Glycerol_A_Ejection_1_of_118
+
+:Step_Fifty_Glycerol_A_Ejection_1_of_118 rdf:type owl:NamedIndividual ,
+                                                  :MaterialDeposition ;
+
+                                         rdfs:label "Fifty_Glycerol_Ink_A_Ejection_1_of_118"^^xsd:string ;
+
+                                         ampo:hasParticipant :Fifty_Glycerol ;
+
+                                         ampo:produces :Prod_Fifty_Glycerol_A_Droplet_1_of_118 ;
+
+                                         ampo:hasParticipant :Nozzle_BC ;
+
+                                         ampo:qualifiedEquipmentUsage [ rdf:type ampo:EquipmentUsage ;
+                                                                       ampo:requiresInput :DropletActuation_TR-1 ;
+                                                                       ampo:equipment :Nozzle_BC ;
+                                                                       ampo:requiresInput [ rdf:type :ActuatorNozzle_HeaterBlockTemperature ;
+                                                                                            ampo:isInputOf :Nozzle_BC ;
+                                                                                            qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                                                                                 qudt:numericValue "26.0"^^xsd:float ;
+                                                                                                                 qudt:unit qudt-unit:DegreeCelsius
+                                                                                                               ]
+                                                                                          ]
+                                                                     ] .
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Nozzle_BC
+
+:Nozzle_BC rdf:type owl:NamedIndividual ,
+                    :ActuatorNozzle ;
+
+           rdfs:label "BC"^^xsd:string .
+
+
+
+### Other triples
+:Nozzle_BC              ampo:isParticipantIn :Step_Fifty_Glycerol_A_Ejection_1_of_118 .
+:Fifty_Glycerol         ampo:isParticipantIn :Step_Fifty_Glycerol_A_Ejection_1_of_118 .
+:Nozzle_BC              ampo:hasInput :DropletActuation_TR-1 .
+:DropletActuation_TR-1  ampo:isInputOf :Nozzle_BC .

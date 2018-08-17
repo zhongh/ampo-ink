@@ -1,0 +1,31 @@
+###  https://tw.rpi.edu/web/project/ampo-ink#${_ink_id}
+
+:${_ink_id} rdf:type :Ink ;
+
+          rdfs:label "${_ink_label}"^^xsd:string ;
+
+          ampo:hasAttribute [ rdf:type :Ink_Density ;
+                              rdfs:label "Density"^^xsd:string ;
+                              qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                   qudt:numericValue "${_density}"^^xsd:double ;
+                                                   qudt:unit qudt-unit:KilogramPerCubicMeter
+                                                 ]
+                            ] ,
+                            [ rdf:type :Ink_DynamicViscosity ;
+                              rdfs:label "Dynamic Viscosity"^^xsd:string ;
+                              qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                   qudt:numericValue "${_dynamic_viscosity}"^^xsd:double ;
+                                                   qudt:unit qudt-unit:PascalSecond
+                                                 ]
+                            ] ,
+                            [ rdf:type :Ink_Color ;
+                              rdfs:label "Color"^^xsd:string ;
+                              ampo:descriptiveValue "${_color}"^^xsd:string
+                            ] ,
+                            [ rdf:type :Ink_SurfaceTension ;
+                              rdfs:label "Surface Tension"^^xsd:string ;
+                              qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                   qudt:numericValue "${_surface_tension}"^^xsd:double ;
+                                                   qudt:unit qudt-unit:NewtonPerMeter
+                                                 ]
+                            ] .

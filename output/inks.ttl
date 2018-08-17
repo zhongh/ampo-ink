@@ -1,0 +1,170 @@
+###  https://tw.rpi.edu/web/project/ampo-ink#VeroClear
+
+:VeroClear rdf:type :Ink ;
+
+          rdfs:label "VeroClear"^^xsd:string ;
+
+          ampo:hasAttribute [ rdf:type :Ink_Density ;
+                              rdfs:label "Density"^^xsd:string ;
+                              qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                   qudt:numericValue ""^^xsd:double ;
+                                                   qudt:unit qudt-unit:KilogramPerCubicMeter
+                                                 ]
+                            ] ,
+                            [ rdf:type :Ink_DynamicViscosity ;
+                              rdfs:label "Dynamic Viscosity"^^xsd:string ;
+                              qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                   qudt:numericValue ""^^xsd:double ;
+                                                   qudt:unit qudt-unit:PascalSecond
+                                                 ]
+                            ] ,
+                            [ rdf:type :Ink_Color ;
+                              rdfs:label "Color"^^xsd:string ;
+                              ampo:descriptiveValue "Clear"^^xsd:string
+                            ] ,
+                            [ rdf:type :Ink_SurfaceTension ;
+                              rdfs:label "Surface Tension"^^xsd:string ;
+                              qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                   qudt:numericValue ""^^xsd:double ;
+                                                   qudt:unit qudt-unit:NewtonPerMeter
+                                                 ]
+                            ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Fifty_Glycerol
+
+:Fifty_Glycerol rdf:type :Ink ;
+
+          rdfs:label "50 Glycerol"^^xsd:string ;
+
+          ampo:hasAttribute [ rdf:type :Ink_Density ;
+                              rdfs:label "Density"^^xsd:string ;
+                              qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                   qudt:numericValue "1144.2"^^xsd:double ;
+                                                   qudt:unit qudt-unit:KilogramPerCubicMeter
+                                                 ]
+                            ] ,
+                            [ rdf:type :Ink_DynamicViscosity ;
+                              rdfs:label "Dynamic Viscosity"^^xsd:string ;
+                              qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                   qudt:numericValue "0.0069"^^xsd:double ;
+                                                   qudt:unit qudt-unit:PascalSecond
+                                                 ]
+                            ] ,
+                            [ rdf:type :Ink_Color ;
+                              rdfs:label "Color"^^xsd:string ;
+                              ampo:descriptiveValue "Clear"^^xsd:string
+                            ] ,
+                            [ rdf:type :Ink_SurfaceTension ;
+                              rdfs:label "Surface Tension"^^xsd:string ;
+                              qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                   qudt:numericValue "0.069"^^xsd:double ;
+                                                   qudt:unit qudt-unit:NewtonPerMeter
+                                                 ]
+                            ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#DI_Water
+
+:DI_Water rdf:type :Ink ;
+
+          rdfs:label "DI Water"^^xsd:string ;
+
+          ampo:hasAttribute [ rdf:type :Ink_Density ;
+                              rdfs:label "Density"^^xsd:string ;
+                              qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                   qudt:numericValue "996.9"^^xsd:double ;
+                                                   qudt:unit qudt-unit:KilogramPerCubicMeter
+                                                 ]
+                            ] ,
+                            [ rdf:type :Ink_DynamicViscosity ;
+                              rdfs:label "Dynamic Viscosity"^^xsd:string ;
+                              qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                   qudt:numericValue "0.0009"^^xsd:double ;
+                                                   qudt:unit qudt-unit:PascalSecond
+                                                 ]
+                            ] ,
+                            [ rdf:type :Ink_Color ;
+                              rdfs:label "Color"^^xsd:string ;
+                              ampo:descriptiveValue "Clear"^^xsd:string
+                            ] ,
+                            [ rdf:type :Ink_SurfaceTension ;
+                              rdfs:label "Surface Tension"^^xsd:string ;
+                              qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                   qudt:numericValue "0.072"^^xsd:double ;
+                                                   qudt:unit qudt-unit:NewtonPerMeter
+                                                 ]
+                            ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#TangoBlack
+
+:TangoBlack rdf:type :Ink ;
+
+          rdfs:label "TangoBlack"^^xsd:string ;
+
+          ampo:hasAttribute [ rdf:type :Ink_Density ;
+                              rdfs:label "Density"^^xsd:string ;
+                              qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                   qudt:numericValue ""^^xsd:double ;
+                                                   qudt:unit qudt-unit:KilogramPerCubicMeter
+                                                 ]
+                            ] ,
+                            [ rdf:type :Ink_DynamicViscosity ;
+                              rdfs:label "Dynamic Viscosity"^^xsd:string ;
+                              qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                   qudt:numericValue ""^^xsd:double ;
+                                                   qudt:unit qudt-unit:PascalSecond
+                                                 ]
+                            ] ,
+                            [ rdf:type :Ink_Color ;
+                              rdfs:label "Color"^^xsd:string ;
+                              ampo:descriptiveValue "Black"^^xsd:string
+                            ] ,
+                            [ rdf:type :Ink_SurfaceTension ;
+                              rdfs:label "Surface Tension"^^xsd:string ;
+                              qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                   qudt:numericValue ""^^xsd:double ;
+                                                   qudt:unit qudt-unit:NewtonPerMeter
+                                                 ]
+                            ] .
+
+
+
+###  https://tw.rpi.edu/web/project/ampo-ink#Eighty_Glycerol
+
+:Eighty_Glycerol rdf:type :Ink ;
+
+          rdfs:label "80 Glycerol"^^xsd:string ;
+
+          ampo:hasAttribute [ rdf:type :Ink_Density ;
+                              rdfs:label "Density"^^xsd:string ;
+                              qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                   qudt:numericValue "1271.1"^^xsd:double ;
+                                                   qudt:unit qudt-unit:KilogramPerCubicMeter
+                                                 ]
+                            ] ,
+                            [ rdf:type :Ink_DynamicViscosity ;
+                              rdfs:label "Dynamic Viscosity"^^xsd:string ;
+                              qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                   qudt:numericValue "0.0669"^^xsd:double ;
+                                                   qudt:unit qudt-unit:PascalSecond
+                                                 ]
+                            ] ,
+                            [ rdf:type :Ink_Color ;
+                              rdfs:label "Color"^^xsd:string ;
+                              ampo:descriptiveValue "Clear"^^xsd:string
+                            ] ,
+                            [ rdf:type :Ink_SurfaceTension ;
+                              rdfs:label "Surface Tension"^^xsd:string ;
+                              qudt:quantityValue [ rdf:type qudt:QuantityValue ;
+                                                   qudt:numericValue "0.065"^^xsd:double ;
+                                                   qudt:unit qudt-unit:NewtonPerMeter
+                                                 ]
+                            ] .
+
+
+
