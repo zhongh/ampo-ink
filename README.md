@@ -30,25 +30,16 @@
 
 This use case uses the updated ampo ontology `ampo-1.0.5.ttl` which is published at and imported from <http://homepages.rpi.edu/~zhongh3/ontologies/ampo-1.0.5.ttl>
 
+### Updates (To be added)
 
-### Ontology Headings
+### Last updates
 
-```
-<https://tw.rpi.edu/web/project/ampo-ink> rdf:type owl:Ontology ;
-                                          
-                                          owl:imports <http://homepages.rpi.edu/~zhongh3/ontologies/ampo-1.0.5.ttl> .
-```
+- Added types and attributes for waveforms i.e. `ampo:Actuator_DropletActuation`
+- Add according attributes for `ampo:Droplet`
+- Explored and found using Python `string.Template` library to create and write triples neatly from predefined templates
+- Verifed the example instances by running the queries
+- Certain triples were to be added in addition to the individual definitions. For example, a `Actuator_DropletActuation` is input of some nozzle and is required input by some `ampo:EquipmentUsage`
+- Found that we were unable to import individuals from external files and query correctly. Currently we concatenate files manually and it works fine.
+- Qualified usages be defined as anonymous individuals while droplets (`ampo:Product`) be defined explicitly as named individuals. 
 
-
-### Updates
-
-- added types and attributes for waveforms
-- (DONE) very ontology ampo-ink vs ampo-ink-droplet, the classes part should be the same
-- (DONE) add according attributes for droplets
-- (DONE) find a good way to use python to create and write triples neatly (using `string.Template` library)
-- (NOW) verify the example instances by running the queries
-- (NOW) and get a start to output triples
-- Reminder, certain triples are to be added seperately than in the individual definitijons. For example, a trigger waveform is input of some nozzle and is required input by some equipmentusage
-- (!) Unable to import individuals from external files and query correctly. has to concatenate files.
-- qualified usage be anonymous ok; let's explitely define droplets. should be good to go for sunday.
 
