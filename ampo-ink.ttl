@@ -1,4 +1,3 @@
-@prefix : <https://tw.rpi.edu/web/project/ampo-ink#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix sio: <http://semanticscience.org/resource/> .
@@ -10,13 +9,14 @@
 @prefix qudt: <http://data.nasa.gov/qudt/owl/qudt#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ampo-ink: <https://tw.rpi.edu/web/project/ampo-ink#> .
 @prefix qudt-unit: <http://qudt.org/1.1/vocab/unit#> .
+@prefix ampo-ink: <https://tw.rpi.edu/web/project/ampo-ink#> .
+@prefix : <https://tw.rpi.edu/web/project/ampo-ink#> .
 @base <https://tw.rpi.edu/web/project/ampo-ink> .
 
 <https://tw.rpi.edu/web/project/ampo-ink> rdf:type owl:Ontology ;
                                           
-                                          owl:imports <http://homepages.rpi.edu/~zhongh3/ontologies/ampo-1.0.5.ttl> .
+                                          owl:imports <https://zhongh.github.io/ampo-ink/ampo/ampo-1.5.0.ttl> .
 
 
 #################################################################
